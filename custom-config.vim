@@ -4,36 +4,73 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'codota/tabnine-vim'
+" language
 Plugin 'scrooloose/syntastic'
-Plugin 'mileszs/ack.vim'
-Plugin 'dense-analysis/ale'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'frazrepo/vim-rainbow'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'itchyny/lightline.vim'
-Plugin 'preservim/nerdcommenter'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-
-Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
-Plugin 'editorconfig/editorconfig-vim'
+Plugin 'w0rp/ale'
+Plugin 'morhetz/gruvbox'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'elzr/vim-json'
+Plugin 'othree/html5.vim'
 
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'majutsushi/tagbar'
+" completion
+" Plugin 'valloric/youcompleteme'
+Plugin 'honza/vim-snippets'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-endwise'
+Plugin 'raimondi/delimitmate'
+
+" code display
+Plugin 'tpope/vim-surround'
+" Plugin 'vim-airline/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-airline/vim-airline' " vim status bar
+Plugin 'yggdroot/indentline'
+Plugin 'tomasr/molokai'
+Plugin 'sjl/gundo.vim'
+Plugin 'nanotech/jellybeans.vim'
+
+" integration
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
+" interface
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'blueyed/vim-diminactive'
+Plugin 'bling/vim-airline'
+" Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'junegunn/fzf.vim'
+" Plugin 'sirver/ultisnips'
+Plugin 'shougo/unite.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'xuyuanp/nerdtree-git-plugin'
+
+" command
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'junegunn/fzf'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tomtom/tcomment_vim'
+
+" other
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 
 set t_Co=256
+set hlsearch
+set number
+
+"for NERDTree
+let g:NERDTreeWinSize=60
 
 " for jellybeans
 colorscheme jellybeans
@@ -53,8 +90,6 @@ let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='hybrid'
 set laststatus=2 " turn on bottom bar
 let mapleader = ","
-nnoremap <leader>q :bp<CR>
-nnoremap <leader>w :bn<CR>
 
 " for blueyed/vim-diminactive
 let g:diminactive_enable_focus = 1

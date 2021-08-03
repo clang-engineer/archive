@@ -6,7 +6,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'codota/tabnine-vim'
-Plugin 'syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'junegunn/fzf'
@@ -58,6 +58,16 @@ nnoremap <leader>w :bn<CR>
 
 " for blueyed/vim-diminactive
 let g:diminactive_enable_focus = 1
+
+" for 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 syntax enable
 filetype indent on

@@ -4,6 +4,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+" Plugin from tasty development
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'majutsushi/tagbar'
@@ -15,9 +16,40 @@ Plugin 'vim-airline/vim-airline' " vim status bar
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'blueyed/vim-diminactive'
 
+" Language
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mattn/emmet-vim'
+Plugin 'w0rp/ale'
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+
+" Completion
+Plugin 'valloric/youcompleteme', { 'do': 'python3 ./install.py --java-completer --js-completer --ts-completer'}
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-endwise'
+Plugin 'raimondi/delimitmate'
+Plugin 'taglist.vim'
+Plugin 'jiangmiao/auto-pairs'
+
+" Code display
+" Integrations
+" Interface
+" Commands
+" Other
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'editorconfig/editorconfig-vim'
+
+
 call vundle#end()
 
 set t_Co=256
+set hlsearch
+set number
+
+" for NERDTree
+let g:NERDTreeWinSize=60
 
 " for jellybeans
 colorscheme jellybeans
@@ -43,6 +75,38 @@ nnoremap <leader>w :bn<CR>
 " for blueyed/vim-diminactive
 let g:diminactive_enable_focus = 1
 
+" for systastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+"for ycm
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_filetype_blacklist = {}
+let g:ycm_filetype_blacklist = {
+    \ 'tagbar' : 1,
+    \ 'qf' : 1,
+    \ 'notes' : 1,
+    \ 'markdown' : 1,
+    \ 'unite' : 1,
+    \ 'text' : 1,
+    \ 'vimwiki' : 1,
+    \ 'pandoc' : 1,
+    \ 'infolog' : 1,
+    \ 'mail' : 1
+    \}
+
+
 syntax enable
 filetype indent on
 highlight Comment term=bold cterm=bold ctermfg=4
+

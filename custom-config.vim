@@ -46,7 +46,7 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " Other
 Plugin 'editorconfig/editorconfig-vim'
-
+Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 
@@ -74,9 +74,9 @@ let g:indent_guides_guide_size=1
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='hybrid'
 set laststatus=2 " turn on bottom bar
-let mapleader = ","
-nnoremap <leader>q :bp<CR>
-nnoremap <leader>w :bn<CR>
+"let mapleader = ","
+"nnoremap <leader>q :bp<CR>
+"nnoremap <leader>w :bn<CR>
 
 " for blueyed/vim-diminactive
 let g:diminactive_enable_focus = 1
@@ -110,7 +110,6 @@ let g:ycm_filetype_blacklist = {
     \ 'infolog' : 1,
     \ 'mail' : 1
     \}
-
 
 syntax enable
 filetype indent on

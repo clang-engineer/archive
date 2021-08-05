@@ -33,12 +33,18 @@ Plugin 'taglist.vim'
 Plugin 'jiangmiao/auto-pairs'
 
 " Code display
+Plugin 'tpope/vim-surround'
+
 " Integrations
+Plugin 'kien/ctrlp.vim'
+Plugin 'xuyuanp/nerdtree-git-plugin'
+
 " Interface
 " Commands
-" Other
+Plugin 'tpope/vim-repeat'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
+
+" Other
 Plugin 'editorconfig/editorconfig-vim'
 
 

@@ -21,6 +21,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
+Plugin 'morhetz/gruvbox'
+Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'elzr/vim-json'
@@ -62,7 +64,7 @@ set number
 let g:NERDTreeWinSize=60
 
 " for jellybeans
-colorscheme jellybeans
+colorscheme gruvbox
 
 " for taglist
 nmap <F8> :Tagbar<CR>
@@ -126,6 +128,18 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
+
+" for ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|target'
 
 syntax enable
 filetype indent on

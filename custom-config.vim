@@ -23,6 +23,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'burnettk/vim-angular'
 
 " Completion
 Plugin 'valloric/youcompleteme', { 'do': 'python3 ./install.py --java-completer --js-completer --ts-completer'}
@@ -90,7 +91,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty \<", "inserting implicit ", "unescaped \&" , "lacks \"action", "lacks value", "lacks \"src", "is not recognized!", "discarding unexpected", "replacing obsolete ", "attribute name"]
+let g:syntastic_java_javac_classpath = "/Users/young/Desktop/workspace/Registry/target/classes"
 
 "for ycm
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -110,6 +112,17 @@ let g:ycm_filetype_blacklist = {
     \ 'infolog' : 1,
     \ 'mail' : 1
     \}
+
+" for nerdtree
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_java = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
 
 syntax enable
 filetype indent on

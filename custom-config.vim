@@ -23,6 +23,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'elzr/vim-json'
 Plugin 'burnettk/vim-angular'
 
 " Completion
@@ -35,6 +36,8 @@ Plugin 'jiangmiao/auto-pairs'
 
 " Code display
 Plugin 'tpope/vim-surround'
+Plugin 'ap/vim-css-color'
+Plugin 'valloric/matchtagalways'
 
 " Integrations
 Plugin 'kien/ctrlp.vim'

@@ -22,11 +22,12 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'morhetz/gruvbox'
-Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'elzr/vim-json'
+Plugin 'othree/html5.vim'
 Plugin 'burnettk/vim-angular'
+Plugin 'peitalin/vim-jsx-typescript'
 
 " Completion
 Plugin 'valloric/youcompleteme', { 'do': 'python3 ./install.py --java-completer --js-completer --ts-completer'}
@@ -99,7 +100,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty \<", "inserting implicit ", "unescaped \&" , "lacks \"action", "lacks value", "lacks \"src", "is not recognized!", "discarding unexpected", "replacing obsolete ", "attribute name"]
-let g:syntastic_java_javac_classpath = "/Users/young/Desktop/workspace/Registry/target/classes"
+let g:syntastic_java_javac_classpath = "/Users/kim-youngjun/Desktop/workspace/InsightEx/build/classes"
 
 "for ycm
 let g:ycm_collect_identifiers_from_comments_and_strings = 1

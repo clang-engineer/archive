@@ -45,6 +45,7 @@ Plugin 'valloric/matchtagalways'
 " Integrations
 Plugin 'kien/ctrlp.vim'
 Plugin 'xuyuanp/nerdtree-git-plugin'
+Plugin 'rking/ag.vim'
 
 " Interface
 
@@ -143,6 +144,21 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|target'
+
+" for tagbar - typescript
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
 
 syntax enable
 filetype indent on

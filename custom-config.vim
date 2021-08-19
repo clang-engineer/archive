@@ -63,12 +63,10 @@ call vundle#end()
 set t_Co=256
 set hlsearch
 set number
+colorscheme jellybeans
 
 " for NERDTree
 let g:NERDTreeWinSize=60
-
-" for jellybeans
-colorscheme gruvbox
 
 " for taglist
 nmap <F8> :Tagbar<CR>
@@ -159,6 +157,9 @@ let g:tagbar_type_typescript = {
     \ 'e:enums',
   \ ]
 \ }
+
+" for ale - lombok
+let g:ale_java_javac_executable = "javac -cp ~/.m2/repository/org/projectlombok/lombok/1.18.16/lombok-1.18.16.jar"
 
 syntax enable
 filetype indent on

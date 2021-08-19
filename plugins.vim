@@ -91,14 +91,6 @@ let g:airline_theme='hybrid'
 " for blueyed/vim-diminactive
 let g:diminactive_enable_focus = 1
 
-" for systastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty \<", "inserting implicit ", "unescaped \&" , "lacks \"action", "lacks value", "lacks \"src", "is not recognized!", "discarding unexpected", "replacing obsolete ", "attribute name"]
-let g:syntastic_java_javac_classpath = "/Users/kim-youngjun/Desktop/workspace/InsightEx/build/classes"
-
 "for ycm
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings = 1
@@ -152,9 +144,6 @@ let g:tagbar_type_typescript = {
     \ 'e:enums',
   \ ]
 \ }
-
-" for ale - lombok
-let g:ale_java_javac_executable = "javac -cp ~/.m2/repository/org/projectlombok/lombok/1.18.16/lombok-1.18.16.jar"
 
 syntax enable
 filetype indent on

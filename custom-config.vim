@@ -64,12 +64,16 @@ set t_Co=256
 set hlsearch
 set number
 colorscheme jellybeans
+set laststatus=2 " turn on bottom bar
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
 
 " for NERDTree
 let g:NERDTreeWinSize=60
-
-" for taglist
-nmap <F8> :Tagbar<CR>
 
 " for indent guide
 let g:indentguides_spacechar = '┆'
@@ -81,19 +85,11 @@ let g:indent_guides_guide_size=1
 " for vim-airline
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='hybrid'
-set laststatus=2 " turn on bottom bar
-"let mapleader = ","
-"nnoremap <leader>q :bp<CR>
-"nnoremap <leader>w :bn<CR>
 
 " for blueyed/vim-diminactive
 let g:diminactive_enable_focus = 1
 
 " for systastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -132,9 +128,6 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 " for ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',

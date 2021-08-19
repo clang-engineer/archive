@@ -7,14 +7,6 @@ call vundle#begin()
 " Plugin from tasty development
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
-Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
-Plugin 'vim-airline/vim-airline' " vim status bar
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'blueyed/vim-diminactive'
 
 " Language
 Plugin 'scrooloose/syntastic'
@@ -39,15 +31,22 @@ Plugin 'jiangmiao/auto-pairs'
 
 " Code display
 Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline' " vim status bar
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ap/vim-css-color'
 Plugin 'valloric/matchtagalways'
 
 " Integrations
+Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
+Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
 Plugin 'kien/ctrlp.vim'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'rking/ag.vim'
 
 " Interface
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'blueyed/vim-diminactive'
 
 " Commands
 Plugin 'tpope/vim-repeat'
@@ -60,10 +59,11 @@ Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 
+colorscheme gruvbox
+
 set t_Co=256
 set hlsearch
 set number
-colorscheme jellybeans
 set laststatus=2 " turn on bottom bar
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -71,6 +71,8 @@ set statusline+=%*
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
+filetype plugin on
+autocmd VimEnter * NERDTree
 
 " for NERDTree
 let g:NERDTreeWinSize=60

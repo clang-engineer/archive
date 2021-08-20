@@ -42,7 +42,6 @@ Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and remov
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'xuyuanp/nerdtree-git-plugin'
-Plugin 'rking/ag.vim'
 
 " Interface
 Plugin 'vim-airline/vim-airline-themes'
@@ -60,7 +59,7 @@ Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 
-colorscheme gruvbox
+colorscheme jellybeans
 
 set t_Co=256
 set hlsearch

@@ -1,6 +1,7 @@
 " fugitive.vim
 
 " The NERD Tree
+let g:NERDTreeWinSize=60
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1

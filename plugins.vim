@@ -22,7 +22,7 @@ Plugin 'burnettk/vim-angular'
 Plugin 'peitalin/vim-jsx-typescript'
 
 " Completion
-Plugin 'valloric/youcompleteme', { 'do': 'python3 ./install.py --java-completer --js-completer --ts-completer'}
+Plugin 'valloric/youcompleteme',
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-endwise'
 Plugin 'raimondi/delimitmate'

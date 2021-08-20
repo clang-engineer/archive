@@ -41,6 +41,7 @@ Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
 Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'rking/ag.vim'
 
@@ -77,17 +78,6 @@ autocmd VimEnter * NERDTree
 " for NERDTree
 let g:NERDTreeWinSize=60
 
-" for indent guide
-let g:indentguides_spacechar = '┆'
-let g:indentguides_tabchar = '|'
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-
-" for vim-airline
-let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
-let g:airline_theme='hybrid'
-
 " for blueyed/vim-diminactive
 let g:diminactive_enable_focus = 1
 
@@ -110,25 +100,7 @@ let g:ycm_filetype_blacklist = {
     \ 'mail' : 1
     \}
 
-" for nerdtree
-let g:NERDCreateDefaultMappings = 1
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDAltDelims_java = 1
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDToggleCheckAllLines = 1
 
-" for ctrlp
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|target'
 
 " for tagbar - typescript
 let g:tagbar_type_typescript = {

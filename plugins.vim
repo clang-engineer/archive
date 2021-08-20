@@ -78,8 +78,6 @@ autocmd VimEnter * NERDTree
 " for NERDTree
 let g:NERDTreeWinSize=60
 
-" for blueyed/vim-diminactive
-let g:diminactive_enable_focus = 1
 
 "for ycm
 let g:ycm_collect_identifiers_from_comments_and_strings = 1

@@ -18,11 +18,15 @@ let g:ycm_filetype_blacklist = {
     \}
 
 " SuperTab
+" - vim insert mode completions with Tab
 
 " endwise.vim
 
 " delimitmate
+" - automatic closing of quotes, parenthesis, brackets, etc
 
 " taglist.vim
+" - structer browser
 
 " Auto Pairs
+" - Insert or delete brackets, parens, quotes in pair.

@@ -50,6 +50,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'blueyed/vim-diminactive'
 
 " Commands
+Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-repeat'
 Plugin 'junegunn/fzf'
 Plugin 'terryma/vim-multiple-cursors'

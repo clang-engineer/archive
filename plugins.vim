@@ -5,7 +5,6 @@ call vundle#begin()
 
 " Plugin from tasty development
 Plugin 'gmarik/Vundle.vim'
-Plugin 'nanotech/jellybeans.vim'
 
 " Language
 Plugin 'scrooloose/syntastic'
@@ -30,8 +29,8 @@ Plugin 'jiangmiao/auto-pairs'
 
 " Code display
 Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline' " vim status bar
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'valloric/matchtagalways'
 
@@ -44,7 +43,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 
 " Interface
+Plugin 'vim-airline/vim-airline' " vim status bar
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'godlygeek/tabular'
 Plugin 'blueyed/vim-diminactive'
 
 " Commands
@@ -72,7 +73,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 filetype plugin on
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 syntax enable
 filetype indent on

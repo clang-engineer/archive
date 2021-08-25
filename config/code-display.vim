@@ -2,10 +2,6 @@
 " - surround parentheses, brackets, quotes, XML tags, and more.
 " update - cs, remove - ds, create - yss
 
-" vim-airline
-let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
-let g:airline_theme='hybrid'
-
 " Indent Guides
 let g:indentguides_spacechar = '┆'
 let g:indentguides_tabchar = '|'

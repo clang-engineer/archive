@@ -49,12 +49,12 @@ Plugin 'vim-airline/vim-airline' " vim status bar
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'godlygeek/tabular'
+Plugin 'junegunn/fzf'
 Plugin 'blueyed/vim-diminactive'
 
 " Commands
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-repeat'
-Plugin 'junegunn/fzf'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'flazz/vim-colorschemes'
 

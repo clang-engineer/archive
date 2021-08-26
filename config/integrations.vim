@@ -17,5 +17,8 @@ let g:NERDTreeWinSize=60
 " gv.vim
 " - git commit browser
 
+" gv.vim
+" - git commit browser
+
 " Root ignore
 " - ctrlp wildignore from .gitignore

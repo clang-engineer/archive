@@ -32,10 +32,12 @@ Plugin 'alvan/vim-closetag'
 " Code display
 Plugin 'tpope/vim-surround'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tomasr/molokai'
 Plugin 'sjl/gundo.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'valloric/matchtagalways'
+Plugin 'junegunn/seoul256.vim'
 
 " Integrations
 Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
@@ -44,7 +46,7 @@ Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and remov
 Plugin 'mileszs/ack.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/gv.vim'
-
+Plugin 'octref/rootignore'
 
 " Interface
 Plugin 'vim-airline/vim-airline' " vim status bar
@@ -74,7 +76,7 @@ source ~/.vim/config/interface.vim
 source ~/.vim/config/commands.vim
 source ~/.vim/config/other.vim
 
-colorscheme jellybeans
+colorscheme seoul256
 
 set t_Co=256
 set hlsearch

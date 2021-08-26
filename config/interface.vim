@@ -23,5 +23,3 @@ let g:ctrlp_custom_ignore = 'node_modules\|ds_store\|target'
 " - find * -type f | fzf > selected
 " - vim $(fzf)
 
-" vim-diminactive
-let g:diminactive_enable_focus = 1

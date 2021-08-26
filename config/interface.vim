@@ -23,3 +23,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|ds_store\|target'
 " - find * -type f | fzf > selected
 " - vim $(fzf)
 
+" nerdtree-git-plugin
+" - nerdtree show git status
+

@@ -13,4 +13,11 @@ let g:indent_guides_guide_size=1
 let g:gundo_prefer_python3 = 1
 
 " vim-css-color
+" - preview color code
+
 " matchtagalways
+" - (x)html highlighting matchign tag
+
+" seoul256
+let g:seoul256_background = 236
+colo seoul256

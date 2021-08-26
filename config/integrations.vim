@@ -6,8 +6,16 @@
 let g:NERDTreeWinSize=60
 
 " vim-gitgutter
+" - show line change status on code
 
 " ack.vim
+" - file text finder
 
-" nerdtree-git-plugin
+" vim-tmux-navigator
+" - tmux vim seamless navigaion
 
+" gv.vim
+" - git commit browser
+
+" Root ignore
+" - ctrlp wildignore from .gitignore

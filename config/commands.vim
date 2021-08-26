@@ -23,3 +23,8 @@ let g:tagbar_type_typescript = {
 " - vim $(fzf)
 
 " vim-multiple-cursors
+" - multiple selection
+" - <C-n>, <C-x>, <C-p>, <A-n>
+
+" vim-colorschemes
+" :colorscheme molokai

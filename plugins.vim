@@ -56,6 +56,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-repeat'
 Plugin 'junegunn/fzf'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'flazz/vim-colorschemes'
 
 " Other
 Plugin 'editorconfig/editorconfig-vim'

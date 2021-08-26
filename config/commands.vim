@@ -15,7 +15,11 @@ let g:tagbar_type_typescript = {
 \ }
 
 " repeat.vim
+" - enable repeating supported plugin maps with '.'
 
 " fzf
+" - file finder
+" - find * -type f | fzf > selected
+" - vim $(fzf)
 
 " vim-multiple-cursors

@@ -42,6 +42,9 @@ Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
 Plugin 'mileszs/ack.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'junegunn/gv.vim'
+
 
 " Interface
 Plugin 'vim-airline/vim-airline' " vim status bar

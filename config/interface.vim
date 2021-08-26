@@ -25,4 +25,3 @@ let g:ctrlp_custom_ignore = 'node_modules\|ds_store\|target'
 
 " nerdtree-git-plugin
 " - nerdtree show git status
-

@@ -42,7 +42,6 @@ Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
 Plugin 'mileszs/ack.vim'
-Plugin 'xuyuanp/nerdtree-git-plugin'
 
 " Interface
 Plugin 'vim-airline/vim-airline' " vim status bar
@@ -50,7 +49,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'junegunn/fzf'
-Plugin 'blueyed/vim-diminactive'
+Plugin 'xuyuanp/nerdtree-git-plugin'
 
 " Commands
 Plugin 'majutsushi/tagbar'
@@ -63,6 +62,14 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-sensible'
 
 call vundle#end()
+
+source ~/.vim/config/language.vim
+source ~/.vim/config/completion.vim
+source ~/.vim/config/code-display.vim
+source ~/.vim/config/integrations.vim
+source ~/.vim/config/interface.vim
+source ~/.vim/config/commands.vim
+source ~/.vim/config/other.vim
 
 colorscheme jellybeans
 

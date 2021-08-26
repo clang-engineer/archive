@@ -41,13 +41,13 @@ Plugin 'valloric/matchtagalways'
 Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
-Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 
 " Interface
 Plugin 'vim-airline/vim-airline' " vim status bar
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'blueyed/vim-diminactive'
 

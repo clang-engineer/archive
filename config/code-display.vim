@@ -13,6 +13,8 @@ let g:indent_guides_guide_size=1
 " - undo work plugin
 let g:gundo_prefer_python3 = 1
 
+" rainbow parentheses
+
 " jellybeans - theme
 
 " vim-css-color

@@ -10,14 +10,17 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 " Gundo
+" - undo work plugin
 let g:gundo_prefer_python3 = 1
+
+" jellybeans - theme
 
 " vim-css-color
 " - preview color code
 
-" matchtagalways
-" - (x)html highlighting matchign tag
-
-" seoul256
+" seoul256 - theme
 let g:seoul256_background = 236
 colo seoul256
+
+" matchtagalways
+" - (x)html highlighting matchign tag

@@ -36,8 +36,8 @@ Plugin 'tomasr/molokai'
 Plugin 'sjl/gundo.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'ap/vim-css-color'
-Plugin 'valloric/matchtagalways'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'valloric/matchtagalways'
 
 " Integrations
 Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)

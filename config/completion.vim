@@ -30,3 +30,9 @@ let g:ycm_filetype_blacklist = {
 
 " Auto Pairs
 " - Insert or delete brackets, parens, quotes in pair.
+
+" Auto Close
+" - (, ' auto closer
+
+" vim-closetag
+" - close html tag

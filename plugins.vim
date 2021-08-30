@@ -7,10 +7,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Language
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
-"Plugin 'w0rp/ale'
+Plugin 'w0rp/ale'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'

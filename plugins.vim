@@ -10,7 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
@@ -83,9 +83,7 @@ set t_Co=256
 set hlsearch
 set number
 set laststatus=2 " turn on bottom bar
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 

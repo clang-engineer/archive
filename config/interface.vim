@@ -1,5 +1,6 @@
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme='hybrid'
 
 " vim-airline-themes
@@ -14,6 +15,7 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 let g:ctrlp_custom_ignore = 'node_modules\|ds_store\|target'
+let g:ctrlp_working_path_mode = 'r'
 
 " vim Tabluar
 " - aligning text

@@ -60,6 +60,7 @@ Plugin 'xuyuanp/nerdtree-git-plugin'
 " Commands
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-repeat'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'flazz/vim-colorschemes'
 

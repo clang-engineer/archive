@@ -25,6 +25,11 @@ let g:ycm_filetype_blacklist = {
 " delimitmate
 " - automatic closing of quotes, parenthesis, brackets, etc
 
+" deoplete.nvim
+" - completion suggestion
+let g:deoplete#enable_at_startup = 1
+
+
 " taglist.vim
 " - structer browser
 

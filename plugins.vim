@@ -24,6 +24,13 @@ Plugin 'valloric/youcompleteme',
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-endwise'
 Plugin 'raimondi/delimitmate'
+if has('nvim')
+    Plugin 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
+else
+    Plugin 'shougo/deoplete.nvim'
+    Plugin 'roxma/nvim-yarp'
+    Plugin 'roxma/vim-hug-neovim-rpc'
+endif
 Plugin 'taglist.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'townk/vim-autoclose'

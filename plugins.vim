@@ -26,7 +26,6 @@ Plugin 'tpope/vim-endwise'
 Plugin 'raimondi/delimitmate'
 Plugin 'taglist.vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'townk/vim-autoclose'
 Plugin 'alvan/vim-closetag'
 
 " Code display

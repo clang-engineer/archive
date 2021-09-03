@@ -1,4 +1,5 @@
 " Tagbar
+" - ctag info
 
 " repeat.vim
 " - enable repeating supported plugin maps with '.'

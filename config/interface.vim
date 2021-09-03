@@ -14,8 +14,10 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
-let g:ctrlp_custom_ignore = 'node_modules\|ds_store\|target'
-let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_custom_ignore = 'node_modules\|ds_store\'
+let g:ctrlp_custom_ignore = 'target\|build\'
+let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_mruf_relative = 1
 
 " vim Tabluar
 " - aligning text

@@ -79,6 +79,8 @@ source ~/.vim/config/interface.vim
 source ~/.vim/config/commands.vim
 source ~/.vim/config/other.vim
 
+source ~/.vim/config/etc.vim
+
 colorscheme seoul256
 
 set t_Co=256

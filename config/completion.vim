@@ -17,6 +17,9 @@ let g:ycm_filetype_blacklist = {
     \ 'mail' : 1
     \}
 
+" snippets
+" - auto complete set
+
 " SuperTab
 " - vim insert mode completions with Tab
 

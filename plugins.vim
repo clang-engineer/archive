@@ -21,6 +21,7 @@ Plugin 'peitalin/vim-jsx-typescript'
 
 " Completion
 Plugin 'valloric/youcompleteme',
+Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-endwise'
 Plugin 'raimondi/delimitmate'

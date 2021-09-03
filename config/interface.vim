@@ -25,5 +25,8 @@ let g:ctrlp_working_path_mode = 'r'
 " - find * -type f | fzf > selected
 " - vim $(fzf)
 
+" UltiSnips
+" - snippet interface
+
 " nerdtree-git-plugin
 " - nerdtree show git status

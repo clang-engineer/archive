@@ -55,6 +55,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'junegunn/fzf'
+Plugin 'sirver/ultisnips'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 
 " Commands

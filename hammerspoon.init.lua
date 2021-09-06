@@ -1,16 +1,16 @@
 -- hjkl bind
 local function pressFn(mods, key)
-	if key == nil then
-		key = mods
-		mods = {}
-	end
+    if key == nil then
+        key = mods
+        mods = {}
+    end
 
-	return function() hs.eventtap.keyStroke(mods, key, 1000) end
+    return function() hs.eventtap.keyStroke(mods, key, 1000) end
 end
 
 local function remap(mods, key, pressFn)
-	local hotkey = hs.hotkey.bind(mods, key, pressFn, nil, pressFn)
-	table.insert(boundHotKeys, hotkey)
+    local hotkey = hs.hotkey.bind(mods, key, pressFn, nil, pressFn)
+    table.insert(boundHotKeys, hotkey)
 end
 
 boundHotKeys = {}
@@ -25,7 +25,7 @@ remap({'ctrl', 'shift'}, 'j', pressFn({'shift'}, 'down'))
 remap({'ctrl', 'shift'}, 'k', pressFn({'shift'}, 'up'))
 remap({'ctrl', 'shift'}, 'l', pressFn({'shift'}, 'right'))
 
-remap({'ctrl', 'cmd'}, 'h', pressFn({'cmd'}, left'))
+remap({'ctrl', 'cmd'}, 'h', pressFn({'cmd'}, 'left'))
 remap({'ctrl', 'cmd'}, 'j', pressFn({'cmd'}, 'down'))
 remap({'ctrl', 'cmd'}, 'k', pressFn({'cmd'}, 'up'))
 remap({'ctrl', 'cmd'}, 'l', pressFn({'cmd'}, 'right'))
@@ -55,25 +55,28 @@ remap({'ctrl', 'cmd', 'alt', 'shift'}, 'j', pressFn({'cmd', 'alt', 'shift'}, 'do
 remap({'ctrl', 'cmd', 'alt', 'shift'}, 'k', pressFn({'cmd', 'alt', 'shift'}, 'up'))
 remap({'ctrl', 'cmd', 'alt', 'shift'}, 'l', pressFn({'cmd', 'alt', 'shift'}, 'right'))
 
+local mod = 'on'
 
 function enableBinds()
-	for k,v in pairs(boundHotKeys) do
-		v:enable()
-	end
+    for k,v in pairs(boundHotKeys) do
+        v:enable()
+    end
 end
 
 function disableBinds()
-	for k,v in pairs(boundHotKeys) do
-		v:disable()
-	end
+    for k,v in pairs(boundHotKeys) do
+        v:disable()
+    end
 end
 
-local wf=hs.window.filter
-
-wf_terminal = wf.new{'iTerm2'}
-wf_terminal:subscribe(wf.windowFocused, function()
-	disableBinds()
-end)
-wf_terminal:subscribe(wf.windowUnfocused, function()
-	enableBinds()
+hs.hotkey.bind({'alt'},'tab',function()
+    if mod == 'on' then
+        print('turn off')
+        mod='off'
+        disableBinds()
+    else
+        print('turn on')
+        mod='on'
+        enableBinds()
+    end
 end)

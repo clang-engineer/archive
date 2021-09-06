@@ -88,6 +88,11 @@ set hlsearch
 set number
 set laststatus=2 " turn on bottom bar
 
+set smartindent
+set tabstop=4
+set expandtab
+set shiftwidth=4
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 

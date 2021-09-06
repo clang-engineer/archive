@@ -4,12 +4,16 @@ local function pressFn(mods, key)
 		key = mods
 		mods = {}
 	end
+
 	return function() hs.eventtap.keyStroke(mods, key, 1000) end
 end
 
 local function remap(mods, key, pressFn)
-	hs.hotkey.bind(mods, key, pressFn, nil, pressFn)
+	local hotkey = hs.hotkey.bind(mods, key, pressFn, nil, pressFn)
+	table.insert(boundHotKeys, hotkey)
 end
+
+boundHotKeys = {}
 
 remap({'ctrl'}, 'h', pressFn('left'))
 remap({'ctrl'}, 'j', pressFn('down'))
@@ -21,7 +25,7 @@ remap({'ctrl', 'shift'}, 'j', pressFn({'shift'}, 'down'))
 remap({'ctrl', 'shift'}, 'k', pressFn({'shift'}, 'up'))
 remap({'ctrl', 'shift'}, 'l', pressFn({'shift'}, 'right'))
 
-remap({'ctrl', 'cmd'}, 'h', pressFn({'cmd'}, 'left'))
+remap({'ctrl', 'cmd'}, 'h', pressFn({'cmd'}, left'))
 remap({'ctrl', 'cmd'}, 'j', pressFn({'cmd'}, 'down'))
 remap({'ctrl', 'cmd'}, 'k', pressFn({'cmd'}, 'up'))
 remap({'ctrl', 'cmd'}, 'l', pressFn({'cmd'}, 'right'))
@@ -50,3 +54,26 @@ remap({'ctrl', 'cmd', 'alt', 'shift'}, 'h', pressFn({'cmd', 'alt', 'shift'}, 'le
 remap({'ctrl', 'cmd', 'alt', 'shift'}, 'j', pressFn({'cmd', 'alt', 'shift'}, 'down'))
 remap({'ctrl', 'cmd', 'alt', 'shift'}, 'k', pressFn({'cmd', 'alt', 'shift'}, 'up'))
 remap({'ctrl', 'cmd', 'alt', 'shift'}, 'l', pressFn({'cmd', 'alt', 'shift'}, 'right'))
+
+
+function enableBinds()
+	for k,v in pairs(boundHotKeys) do
+		v:enable()
+	end
+end
+
+function disableBinds()
+	for k,v in pairs(boundHotKeys) do
+		v:disable()
+	end
+end
+
+local wf=hs.window.filter
+
+wf_terminal = wf.new{'iTerm2'}
+wf_terminal:subscribe(wf.windowFocused, function()
+	disableBinds()
+end)
+wf_terminal:subscribe(wf.windowUnfocused, function()
+	enableBinds()
+end)

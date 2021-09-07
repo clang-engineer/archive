@@ -96,6 +96,9 @@ set shiftwidth=4
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
+nnoremap <S-Up> <Up>ddp<Up>
+nnoremap <S-Down> ddp
+
 filetype plugin on
 
 syntax enable

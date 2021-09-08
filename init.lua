@@ -1,17 +1,19 @@
 -- hjkl bind
 local function pressFn(mods, key)
-	if key == nil then
-		key = mods
-		mods = {}
-	end
+    if key == nil then
+        key = mods
+        mods = {}
+    end
 
-	return function() hs.eventtap.keyStroke(mods, key, 1000) end
+    return function() hs.eventtap.keyStroke(mods, key, 1000) end
 end
 
 local function remap(mods, key, pressFn)
-	hs.hotkey.bind(mods, key, pressFn, nil, pressFn)	
+    local hotkey = hs.hotkey.bind(mods, key, pressFn, nil, pressFn)	
+    table.insert(boundHotKeys, hotkey)
 end
 
+boundHotKeys = {}
 
 remap({'ctrl'}, 'h', pressFn('left'))
 remap({'ctrl'}, 'j', pressFn('down'))
@@ -52,3 +54,33 @@ remap({'ctrl', 'cmd', 'alt', 'shift'}, 'h', pressFn({'cmd', 'alt', 'shift'}, 'le
 remap({'ctrl', 'cmd', 'alt', 'shift'}, 'j', pressFn({'cmd', 'alt', 'shift'}, 'down'))
 remap({'ctrl', 'cmd', 'alt', 'shift'}, 'k', pressFn({'cmd', 'alt', 'shift'}, 'up'))
 remap({'ctrl', 'cmd', 'alt', 'shift'}, 'l', pressFn({'cmd', 'alt', 'shift'}, 'right'))
+
+local mod = 'on'
+
+function enableBinds()
+    for k,v in pairs(boundHotKeys) do
+        v:enable()
+    end
+    hs.alert.show('turn on hs')
+end
+
+function disableBinds()
+    for k,v in pairs(boundHotKeys) do
+        v:disable()
+    end
+    hs.alert.show('turn off hs')
+end
+
+hs.hotkey.bind({'alt'},'tab',function()
+    if mod == 'on' then
+        print('turn off')
+        mod='off'
+        disableBinds() 
+    else
+        print('turn on')
+        mod='on'
+        enableBinds() 
+    end 
+end)
+
+

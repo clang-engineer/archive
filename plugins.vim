@@ -57,6 +57,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'junegunn/fzf'
 Plugin 'sirver/ultisnips'
 Plugin 'xuyuanp/nerdtree-git-plugin'
+Plugin 'mhinz/vim-startify'
 
 " Commands
 Plugin 'majutsushi/tagbar'

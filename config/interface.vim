@@ -32,3 +32,5 @@ let g:ctrlp_mruf_relative = 1
 
 " nerdtree-git-plugin
 " - nerdtree show git status
+
+" vim-startify

@@ -72,7 +72,13 @@ Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 
-runtime! ~/.vim/config/*.vim
+source ~/.vim/config/language.vim
+source ~/.vim/config/completion.vim
+source ~/.vim/config/code-display.vim
+source ~/.vim/config/integrations.vim
+source ~/.vim/config/interface.vim
+source ~/.vim/config/commands.vim
+source ~/.vim/config/other.vim
 
 colorscheme seoul256
 

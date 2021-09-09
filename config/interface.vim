@@ -29,6 +29,12 @@ let g:ctrlp_mruf_relative = 1
 
 " UltiSnips
 " - snippet interface
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 
 " nerdtree-git-plugin
 " - nerdtree show git status

@@ -17,10 +17,14 @@ let g:ycm_filetype_blacklist = {
     \ 'mail' : 1
     \}
 
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
 " snippets
 
 " SuperTab
 " - vim insert mode completions with Tab
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " endwise.vim
 

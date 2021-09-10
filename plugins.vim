@@ -69,6 +69,7 @@ Plugin 'flazz/vim-colorschemes'
 " Other
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-sensible'
+Plugin 'vimwiki/vimwiki'
 
 call vundle#end()
 

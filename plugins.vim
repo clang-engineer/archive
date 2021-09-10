@@ -73,13 +73,9 @@ Plugin 'vimwiki/vimwiki'
 
 call vundle#end()
 
-source ~/.vim/config/language.vim
-source ~/.vim/config/completion.vim
-source ~/.vim/config/code-display.vim
-source ~/.vim/config/integrations.vim
-source ~/.vim/config/interface.vim
-source ~/.vim/config/commands.vim
-source ~/.vim/config/other.vim
+for include_file in uniq(sort(globpath(&rtp, 'config/*.vim', 0, 1)))
+    execute "source " . include_file
+endfor
 
 colorscheme seoul256
 

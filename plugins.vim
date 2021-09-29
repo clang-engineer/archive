@@ -73,9 +73,16 @@ Plugin 'vimwiki/vimwiki'
 
 call vundle#end()
 
+" vim awesome config
 for include_file in uniq(sort(globpath(&rtp, 'config/*.vim', 0, 1)))
     execute "source " . include_file
 endfor
+
+" skeleton loader
+augroup skeletons
+  au!
+  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
+augroup END
 
 colorscheme seoul256
 

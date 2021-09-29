@@ -48,3 +48,8 @@ function! LastModified()
         call setpos('.', save_cursor)
     endif
 endfun
+
+augroup TagbarAuto
+    autocmd BufRead,BufNewFile *.md,*.java,*.ts TagbarOpen
+    autocmd VimLeavePre * TagbarClose
+augroup END

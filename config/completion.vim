@@ -39,3 +39,6 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " vim-closetag
 " - close html tag
+
+" vim-gutentags
+" - auto reload ctags

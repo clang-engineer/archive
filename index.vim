@@ -28,6 +28,7 @@ Plugin 'raimondi/delimitmate'
 Plugin 'taglist.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'alvan/vim-closetag'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " Code display
 Plugin 'tpope/vim-surround'

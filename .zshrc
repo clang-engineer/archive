@@ -109,6 +109,7 @@ function cd0(){
         "github") cd ~/yorez.github.io ;;
         "work") cd ~/Desktop/workspace ;;
         "ref") cd ~/Desktop/reference ;;
+        "jhi") cd ~/Desktop/reference/jhi ;;
         "vi") cd ~/.vim ;;
     esac
 }

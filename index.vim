@@ -16,6 +16,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'elzr/vim-json'
 Plugin 'othree/html5.vim'
+Plugin 'suan/vim-instant-markdown'
 Plugin 'burnettk/vim-angular'
 Plugin 'peitalin/vim-jsx-typescript'
 
@@ -104,4 +105,3 @@ filetype plugin on
 syntax enable
 filetype indent on
 highlight Comment term=bold cterm=bold ctermfg=4
-

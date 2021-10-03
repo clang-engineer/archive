@@ -39,6 +39,8 @@ augroup END
 
 " html5.vim
 
+" vim-instant-markdown
+
 " vim-angular
 
 " vim-jsx-typescript

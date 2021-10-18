@@ -39,4 +39,6 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 " nerdtree-git-plugin
 " - nerdtree show git status
 
+" vim-workspace
+
 " vim-startify

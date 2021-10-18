@@ -19,6 +19,7 @@ Plugin 'othree/html5.vim'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'burnettk/vim-angular'
 Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'udalov/kotlin-vim'
 
 " Completion
 Plugin 'valloric/youcompleteme',
@@ -59,6 +60,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'junegunn/fzf'
 Plugin 'sirver/ultisnips'
 Plugin 'xuyuanp/nerdtree-git-plugin'
+Plugin 'thaerkh/vim-workspace'
 Plugin 'mhinz/vim-startify'
 
 " Commands

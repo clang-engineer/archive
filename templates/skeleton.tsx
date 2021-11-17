@@ -8,7 +8,7 @@ export interface ISkeleton extends StateProps, DispatchProps {
 
 export const Skeleton = (props: ISkeleton) => {
 
-  return (<div>test</div>);
+  return (<>test</>);
 
 };
 

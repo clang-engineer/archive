@@ -13,7 +13,7 @@ export const Skeleton = (props: ISkeleton) => {
 };
 
 
-const mapStateToProps = ({}: IRootState) => ({});
+const mapStateToProps = ({skeleton}: IRootState) => ({});
 
 const mapDispatchToProps = {};
 

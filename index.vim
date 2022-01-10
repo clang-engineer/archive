@@ -105,7 +105,6 @@ nnoremap <S-Up> <Up>ddp<Up>
 nnoremap <S-Down> ddp
 
 filetype plugin on
-set shell=bash\ -i
 
 syntax enable
 filetype indent on

@@ -17,7 +17,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'elzr/vim-json'
 Plugin 'othree/html5.vim'
-Plugin 'suan/vim-instant-markdown'
+Plugin 'instant-markdown/vim-instant-markdown'
 Plugin 'burnettk/vim-angular'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'udalov/kotlin-vim'
@@ -105,6 +105,7 @@ nnoremap <S-Up> <Up>ddp<Up>
 nnoremap <S-Down> ddp
 
 filetype plugin on
+set shell=bash\ -i
 
 syntax enable
 filetype indent on

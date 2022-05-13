@@ -63,6 +63,7 @@ Plugin 'junegunn/fzf'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'thaerkh/vim-workspace'
 Plugin 'mhinz/vim-startify'
+Plugin 'sickill/vim-monokai'
 
 " Commands
 Plugin 'majutsushi/tagbar'
@@ -86,7 +87,7 @@ endfor
 source ~/.vim/autocmd.vim
 source ~/.vim/abbr.vim
 
-colorscheme seoul256
+colorscheme monokai-phoenix
 
 set t_Co=256
 set hlsearch

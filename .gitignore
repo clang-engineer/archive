@@ -157,5 +157,6 @@ Desktop.ini
 # Custom
 ######################
 bundle/*
+plugged/*
 .netrwhist
 tags

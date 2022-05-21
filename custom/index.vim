@@ -1,8 +1,6 @@
 source ~/.vim/custom/abbr.vim
 source ~/.vim/custom/autocmd.vim
 
-colorscheme monokai-phoenix
-
 set t_Co=256
 set hlsearch
 set number

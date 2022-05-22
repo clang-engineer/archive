@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged') " 플러그인 시작
+call plug#begin('~/.vim/plugged') " 플러그인 시작kjk
 
 " Conquer Of Completion 자동완성 플러그인
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -36,7 +36,19 @@ Plug 'svermeulen/vim-cutlass'
 
 " VIM GAS(GNU ASsembler) Highlighting
 Plug 'Shirk/vim-gas'
+Plug 'ervandew/supertab'
+Plug 'raimondi/delimitmate'
+Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mhinz/vim-startify'
+Plug 'terryma/vim-multiple-cursors' " multiple word selecting
+Plug 'lfilho/cosco.vim' " auto semicolon
 
 call plug#end()
+
+" vim awesome config
+for include_file in uniq(sort(globpath(&rtp, 'config/*.vim', 0, 1)))
+    execute "source " . include_file
+endfor
 
 source ~/.vim/custom/index.vim

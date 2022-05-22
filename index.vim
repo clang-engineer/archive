@@ -32,6 +32,7 @@ Plugin 'taglist.vim'
 Plugin 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair.
 Plugin 'alvan/vim-closetag' " auto insert xml closetag
 Plugin 'ludovicchabant/vim-gutentags' " tag custom
+Plugin 'lfilho/cosco.vim'
 
 " Code display
 Plugin 'tpope/vim-surround' " surround code

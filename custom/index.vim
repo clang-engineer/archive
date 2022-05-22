@@ -25,4 +25,4 @@ syntax enable
 filetype indent on
 highlight Comment term=bold cterm=bold ctermfg=4
 
-autocmd BufWritePre * :normal gg=G`` " auto indent before save
+autocmd BufWritePre * :normal gg=G``zz " auto indent before save

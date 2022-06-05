@@ -32,7 +32,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'blueyed/vim-diminactive'
 
 " vim cutlass 잘라내기 명령어가 yank 에 영향을 주지 않음
-Plug 'svermeulen/vim-cutlass'
+" Plug 'svermeulen/vim-cutlass'
 
 " VIM GAS(GNU ASsembler) Highlighting
 Plug 'Shirk/vim-gas'

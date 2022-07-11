@@ -60,7 +60,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim' " file finder
 Plugin 'godlygeek/tabular' " text align tool
 Plugin 'junegunn/fzf' " unit file finder
-Plugin 'sirver/ultisnips' " code skeleton
+" Plugin 'sirver/ultisnips' " code skeleton
 Plugin 'xuyuanp/nerdtree-git-plugin' " git status on nerdtree
 Plugin 'thaerkh/vim-workspace'
 Plugin 'mhinz/vim-startify' " cached page dashboard
@@ -81,7 +81,7 @@ Plugin 'vimwiki/vimwiki'
 call vundle#end()
 
 " vim awesome config
-for include_file in uniq(sort(globpath(&rtp, 'config/*.vim', 0, 1)))
+for include_file in uniq(sort(globpath(&rtp, 'plugin/*.vim', 0, 1)))
     execute "source " . include_file
 endfor
 

@@ -48,7 +48,7 @@ Plug 'vimwiki/vimwiki' " vim wiki plug
 call plug#end()
 
 " vim awesome config
-for include_file in uniq(sort(globpath(&rtp, 'config/*.vim', 0, 1)))
+for include_file in uniq(sort(globpath(&rtp, 'plugin/*.vim', 0, 1)))
     execute "source " . include_file
 endfor
 

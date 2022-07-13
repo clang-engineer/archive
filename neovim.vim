@@ -1,33 +1,33 @@
 call plug#begin('~/.vim/plugged') " 플러그인 시작kjk
 
-" === Language ==="
+" === Language === "
 Plug 'tpope/vim-surround'
 Plug 'instant-markdown/vim-instant-markdown'
 
-" === Completion ==="
+" === Completion === "
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-endwise'
 Plug 'raimondi/delimitmate'
 
-" === Code display ==="
+" === Code display === "
 Plug 'vim-airline/vim-airline'
 Plug 'nanotech/jellybeans.vim'
 Plug 'morhetz/gruvbox'
 
-" === Integrations ==="
+" === Integrations === "
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 
-" === Interface ==="
+" === Interface === "
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
 
-" === Commands ==="
+" === Commands === "
 Plug 'preservim/tagbar'
 Plug 'terryma/vim-multiple-cursors' " multiple word selecting
 
-" === Other ==="
+" === Other === "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vimwiki/vimwiki' " vim wiki plug
 

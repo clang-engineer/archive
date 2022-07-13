@@ -20,9 +20,5 @@ let g:gundo_prefer_python3 = 1
 " vim-css-color
 " - preview color code
 
-" seoul256 - theme
-let g:seoul256_background = 236
-colo seoul256
-
 " matchtagalways
 " - (x)html highlighting matchign tag

@@ -25,6 +25,4 @@ syntax enable
 filetype indent on
 highlight Comment term=bold cterm=bold ctermfg=4
 
-colorscheme jellybeans
-
 "autocmd BufWritePre * :normal gg=G``zz " auto indent before save

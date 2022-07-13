@@ -82,3 +82,5 @@ for include_file in uniq(sort(globpath(&rtp, 'plugin/*.vim', 0, 1)))
 endfor
 
 source ~/.vim/custom/index.vim
+
+colorscheme seoul256

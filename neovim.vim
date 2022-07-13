@@ -42,7 +42,6 @@ Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
 Plug 'terryma/vim-multiple-cursors' " multiple word selecting
-Plug 'lfilho/cosco.vim' " auto semicolon
 Plug 'vimwiki/vimwiki' " vim wiki plug
 
 call plug#end()

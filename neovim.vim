@@ -44,4 +44,3 @@ call plug#end()
 
 source ~/.vim/custom/index.vim
 
-colorscheme gruvbox

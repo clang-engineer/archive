@@ -1,3 +1,6 @@
+# 순서
+# EDA > 전처리 > 모델링 > 평가
+
 #dir을 통해 사용 가능한 함수 확인
 import pandas as pd
 print(dir(pd))

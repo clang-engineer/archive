@@ -33,3 +33,8 @@ df['y'].head()
 # 'f1'데이터 박스-콕스 box-cox 값 구하기
 df['b'] = power_transform(df[['f1']], method='box-cox')
 df['b'].head()
+
+
+# 두 값의 차이를 절대값으로 구한다음 모두 더해 소수점 둘째 자리까지 출력(반올림)
+round(sum(np.abs(df['y'] - df['b'])),2)
+

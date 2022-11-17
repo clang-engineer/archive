@@ -70,5 +70,12 @@ model.fit(X, y)
 ```py
 predictions = model.predict(test)
 model.score(X, y)
+
+output = pd.DataFrame({'PassengerId': X_test.PassengerId, 'Survived': predictions})
+output.head()
+
+# 수험번호.csv로 출력
+output.to_csv('1234567.csv', index=False)
+
 model.score(test, y_test['Survived'])
 ```

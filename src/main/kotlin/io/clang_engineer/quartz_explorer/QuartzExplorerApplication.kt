@@ -1,6 +1,7 @@
 package io.clang_engineer.quartz_explorer
 
 import io.clang_engineer.quartz_explorer.service.SchedulerService
+import io.clang_engineer.quartz_explorer.service.job.SampleJob
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.ApplicationContext
@@ -107,9 +108,4 @@ fun controlJob(scheduler: org.quartz.Scheduler) {
   }
 }
 
-class SampleJob : org.quartz.Job {
-  override fun execute(context: org.quartz.JobExecutionContext) {
-    println("Hello Quartz!")
-  }
-}
 

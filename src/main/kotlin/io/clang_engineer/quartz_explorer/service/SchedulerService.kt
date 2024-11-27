@@ -23,7 +23,7 @@ class SchedulerService {
 
   private fun buildJobDetail(jobClass: Class<out org.quartz.Job>): org.quartz.JobDetail {
     return org.quartz.JobBuilder.newJob(jobClass)
-      .withIdentity("job-${jobCounter.incrementAndGet()}", "jobs")
+      .withIdentity("${jobCounter.incrementAndGet()}", "jobs")
       .storeDurably()
       .build()
   }
@@ -34,7 +34,7 @@ class SchedulerService {
   ): org.quartz.Trigger {
     return org.quartz.TriggerBuilder.newTrigger()
       .forJob(jobDetail)
-      .withIdentity("trigger-${triggerCounter.incrementAndGet()}", "triggers")
+      .withIdentity("${triggerCounter.incrementAndGet()}", "triggers")
       .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule(cronExpression))
       .build()
   }

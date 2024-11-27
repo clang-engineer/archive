@@ -2,6 +2,7 @@ package io.clang_engineer.quartz_explorer
 
 import io.clang_engineer.quartz_explorer.service.SchedulerService
 import io.clang_engineer.quartz_explorer.service.job.SampleJob
+import org.quartz.Scheduler
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.ApplicationContext
@@ -27,9 +28,9 @@ fun main(args: Array<String>) {
     when (type) {
       "exit" -> exitProcess(0)
       "start" -> schedulerService.scheduleJob(SampleJob::class.java, "0/5 * * * * ?")
-      "scheduler" -> controlScheduler(scheduler)
-      "trigger" -> controlTrigger(scheduler)
-      "job" -> controlJob(scheduler)
+      "job" -> jobController(scheduler)
+      "trigger" -> triggerController(scheduler)
+      "scheduler" -> schedulerController(scheduler)
       "list" -> {
         val jobKeys = scheduler.getJobKeys(org.quartz.impl.matchers.GroupMatcher.anyJobGroup())
         jobKeys.forEach { jobKey ->
@@ -41,71 +42,82 @@ fun main(args: Array<String>) {
   }
 }
 
-fun controlScheduler(scheduler: org.quartz.Scheduler) {
-  println("Enter action (start, stop, standby):")
-  val action = readLine()
+fun jobController(scheduler: Scheduler) {
+    println("Enter action (pause, resume, delete, trigger, reschedule):")
+    val action = readLine()
 
-  when (action) {
-    "start" -> scheduler.start()
-    "stop" -> scheduler.shutdown()
-    "standby" -> scheduler.standby()
-    "pause" -> scheduler.pauseAll()
-    "resume" -> scheduler.resumeAll()
-  }
+    when (action) {
+        "pause" -> scheduler.pauseJob(readJobKey())
+        "resume" -> scheduler.resumeJob(readJobKey())
+        "delete" -> scheduler.deleteJob(readJobKey())
+        "trigger" -> {
+        val trigger = org.quartz.TriggerBuilder.newTrigger()
+            .forJob(readJobKey())
+            .withIdentity(readJobKey().name + "Trigger")
+            .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule("0/5 * * * * ?"))
+            .build()
+        scheduler.scheduleJob(trigger)
+        }
+        "reschedule" -> {
+        println("Enter cron expression:")
+        val cronExpression = readLine()
+        val trigger = org.quartz.TriggerBuilder.newTrigger()
+            .forJob(readJobKey())
+            .withIdentity(readJobKey().name + "Trigger")
+            .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule(cronExpression))
+            .build()
+        scheduler.rescheduleJob(org.quartz.TriggerKey(readJobKey().name + "Trigger"), trigger)
+        }
+    }
 }
 
-fun controlTrigger(scheduler: org.quartz.Scheduler) {
-  println("Enter trigger key:")
-  val triggerKey = org.quartz.TriggerKey(readLine())
-  println("Enter action (pause, resume, delete):")
-  val action = readLine()
+fun triggerController(scheduler: Scheduler) {
+    println("Enter action (pause, resume, delete, reschedule):")
+    val action = readLine()
 
-  when (action) {
-    "pause" -> scheduler.pauseTrigger(triggerKey)
-    "resume" -> scheduler.resumeTrigger(triggerKey)
-    "delete" -> scheduler.unscheduleJob(triggerKey)
-    "reschedule" -> {
-      println("Enter cron expression:")
-      val cronExpression = readLine()
-      val trigger = org.quartz.TriggerBuilder.newTrigger()
-        .withIdentity(triggerKey)
-        .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule(cronExpression))
-        .build()
-      scheduler.rescheduleJob(triggerKey, trigger)
+    when (action) {
+        "pause" -> scheduler.pauseTrigger(readTriggerKey())
+        "resume" -> scheduler.resumeTrigger(readTriggerKey())
+        "delete" -> scheduler.unscheduleJob(readTriggerKey())
+        "reschedule" -> {
+        println("Enter cron expression:")
+        val cronExpression = readLine()
+        val trigger = org.quartz.TriggerBuilder.newTrigger()
+            .withIdentity(readTriggerKey())
+            .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule(cronExpression))
+            .build()
+        scheduler.rescheduleJob(readTriggerKey(), trigger)
+        }
     }
-  }
 }
 
-fun controlJob(scheduler: org.quartz.Scheduler) {
-  println("Enter job key:")
-  val jobKey = org.quartz.JobKey(readLine())
-  println("Enter action (pause, resume, delete):")
-  val action = readLine()
+fun schedulerController(scheduler: Scheduler) {
+    println("Enter action (start, stop, standby, pause, resume):")
+    val action = readLine()
 
-  when (action) {
-    "pause" -> scheduler.pauseJob(jobKey)
-    "resume" -> scheduler.resumeJob(jobKey)
-    "delete" -> scheduler.deleteJob(jobKey)
-    "trigger" -> {
-      val trigger = org.quartz.TriggerBuilder.newTrigger()
-        .forJob(jobKey)
-        .withIdentity(jobKey.name + "Trigger")
-        .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule("0/5 * * * * ?"))
-        .build()
-      scheduler.scheduleJob(trigger)
+    when (action) {
+        "start" -> scheduler.start()
+        "stop" -> scheduler.shutdown()
+        "standby" -> scheduler.standby()
+        "pause" -> scheduler.pauseAll()
+        "resume" -> scheduler.resumeAll()
     }
+}
 
-    "reschedule" -> {
-      println("Enter cron expression:")
-      val cronExpression = readLine()
-      val trigger = org.quartz.TriggerBuilder.newTrigger()
-        .forJob(jobKey)
-        .withIdentity(jobKey.name + "Trigger")
-        .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule(cronExpression))
-        .build()
-      scheduler.rescheduleJob(org.quartz.TriggerKey(jobKey.name + "Trigger"), trigger)
-    }
-  }
+fun readJobKey(): org.quartz.JobKey {
+  println("Enter job group:")
+  val jobGroup = readLine()
+  println("Enter job name:")
+  val jobName = readLine()
+  return org.quartz.JobKey(jobName, jobGroup)
+}
+
+fun readTriggerKey(): org.quartz.TriggerKey {
+  println("Enter trigger group:")
+  val triggerGroup = readLine()
+  println("Enter trigger name:")
+  val triggerName = readLine()
+  return org.quartz.TriggerKey(triggerName, triggerGroup)
 }
 
 

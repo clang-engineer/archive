@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/main/webapp/app/index.js'),
+  output: {
+    path: path.resolve(__dirname, '../build/resources/main/static/'),
+  },
   mode: 'development',
   devServer: {
     port: 9000,

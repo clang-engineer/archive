@@ -1,6 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import AppRoutes from "./routes";
+import {BrowserRouter} from 'react-router-dom';
+import {createRoot} from 'react-dom/client';
 
-const App = () => <h1>Hello, React Without Babel!</h1>;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const App = () => <>
+  <BrowserRouter>
+    <AppRoutes/>
+  </BrowserRouter>
+</>;
+
+const root = createRoot(document.getElementById('root'));
+root.render(<App/>);

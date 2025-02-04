@@ -16,6 +16,10 @@ module.exports = {
         use: 'ts-loader', // ts-loader 사용
         exclude: /node_modules/, // node_modules는 제외
       },
+      {
+        test: /\.scss$/, // SCSS 파일 처리 규칙
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ],
   },
   mode: 'development',

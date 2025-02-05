@@ -4,8 +4,10 @@ import Stomp from 'webstomp-client';
 import JobExecution from "./job-execution";
 import {IJobExecution} from "../../shared/model/job-execution.model";
 import {Grid} from "tabler-react";
+import BatchToolbar from "./batch-toolbar";
 
 const BatchSocket = () => {
+  const [cronExpression, setCronExpression] = useState('0/5 * * * * ?');
   const [jobExecutions, setJobExecutions] = useState<IJobExecution[]>([]);
 
   useEffect(() => {
@@ -19,22 +21,6 @@ const BatchSocket = () => {
     });
   }, []);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    fetch('api/quartz/schedule', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        cronExpression: (document.getElementById('cron-expression') as HTMLInputElement).value,
-        jobDataMap: {
-          key1: 'value1',
-          key2: 'value2',
-        },
-      }),
-    })
-  }
 
   const connectStomp = () => {
     const socket = new SockJS('/websocket/tracker');
@@ -59,29 +45,12 @@ const BatchSocket = () => {
   }
   return (
       <>
-        <form>
-          <input type="text" id="job-name" placeholder="job name"/>
-          <input type="text" id="cron-expression" placeholder="cron expression"
-                 value="0/5 * * * * ?"/>
-          <button onClick={() => onSubmit(event)}>
-            schedule
-          </button>
-          <button type="button" onClick={() => {
-            fetch('api/quartz/pause', {method: 'POST'})
-          }}>
-            pause all
-          </button>
-          <button type="button" onClick={() => {
-            fetch('api/quartz/resume', {method: 'POST'})
-          }}>
-            resume all
-          </button>
-        </form>
+        <BatchToolbar/>
         <Grid.Row cards deck className="p-4">
           {jobExecutions.map((jobExecution) => (
               <JobExecution jobExecution={jobExecution} key={jobExecution.id}/>
           ))}
-        </Grid.Row>k
+        </Grid.Row>
       </>
   );
 }

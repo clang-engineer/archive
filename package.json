@@ -5,10 +5,12 @@
   "description": "Description for batch-explorer",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "npm run webapp:dev --",
+    "clean-www": "rimraf build/resources/main/static/app/{src,build/}",
+    "start": "npm run webapp:dev",
     "webapp:dev": "npm run webpack-dev-server -- --config webpack/webpack.dev.js",
     "webpack-dev-server": "webpack serve",
-    "webapp:build:dev": "webpack --config webpack/webpack.dev.js"
+    "webapp:build:dev": "webpack --config webpack/webpack.dev.js",
+    "webapp:build": "npm run clean-www && npm run webapp:build:dev --"
   },
   "config": {
   },

@@ -1,10 +1,8 @@
 package io.clang_engineer.batch_explorer.config
 
-import org.springframework.batch.core.Job
 import org.springframework.batch.core.JobExecutionListener
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing
-import org.springframework.batch.core.job.builder.JobBuilder
 import org.springframework.batch.core.repository.JobRepository
 import org.springframework.batch.core.step.builder.StepBuilder
 import org.springframework.batch.core.step.tasklet.Tasklet
@@ -22,32 +20,29 @@ class BatchConfiguration(
 ) {
     private val log = org.slf4j.LoggerFactory.getLogger(javaClass)
 
-    private val JOB_NAME = "batch-explorer-job"
-    private val STEP_NAME = "batch-explorer-step"
-
-    @Bean
-    fun batchJob(): Job {
-        return JobBuilder(JOB_NAME, jobRepository).start(batchStep())
-                .listener(batchJobListener()).preventRestart().build()
-    }
-
     @Bean
     fun batchStep(): Step {
-        return StepBuilder(STEP_NAME, jobRepository)
+        return StepBuilder("step", jobRepository)
                 .tasklet(batchTasklet(), transactionManager).build()
     }
 
     @Bean
     fun batchTasklet(): Tasklet {
-        return Tasklet { _, _ ->
+        return Tasklet { contribution, _ ->
             synchronized(this) {
+                val jobParameters = contribution.stepExecution.jobParameters
+                val query = jobParameters.getString("query") ?: ""
+
                 val file = java.io.File("build/output.txt")
 
                 if (!file.exists()) {
                     file.createNewFile()
                 }
 
-                file.appendText("Job executed at ${java.time.LocalDateTime.now()}\n")
+                Thread.sleep(10000)
+
+                file.appendText("Job executed at ${java.time.LocalDateTime.now()}, with parameters: $jobParameters\n")
+                file.appendText("Query: $query\n")
             }
             null
         }

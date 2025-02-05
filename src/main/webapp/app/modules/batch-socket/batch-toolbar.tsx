@@ -1,24 +1,30 @@
 import React from 'react';
 
-import {Form, Grid, Button} from "tabler-react";
+import {Button, Form, Grid} from "tabler-react";
 
 
 const BatchToolbar = React.forwardRef((props, ref) => {
+  const [jobName, setJobName] = React.useState<string | null>(null);
+  const [query, setQuery] = React.useState<string | null>(null);
   const [cronExpression, setCronExpression] = React.useState('0/5 * * * * ?');
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (!jobName || !query || !cronExpression) {
+      alert('Please fill all fields');
+      return;
+    }
+
     fetch('api/quartz/schedule', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        jobName,
+        query,
         cronExpression,
-        jobDataMap: {
-          key1: 'value1',
-          key2: 'value2',
-        },
       }),
     })
   }
@@ -28,7 +34,16 @@ const BatchToolbar = React.forwardRef((props, ref) => {
       <Form>
         <Grid.Row>
           <Grid.Col>
-            <Form.Input type="text" id="job-name" placeholder="job name"/>
+            <Form.Input type="text" id="job-name" placeholder="job name"
+                        value={jobName}
+                        onChange={(e) => setJobName(e.target.value)}
+            />
+          </Grid.Col>
+          <Grid.Col>
+            <Form.Input type="text" id="query" placeholder="query"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+            />
           </Grid.Col>
           <Grid.Col>
             <Form.Input type="text" id="cron-expression" placeholder="cron expression"

@@ -1,6 +1,7 @@
 package io.clang_engineer.batch_explorer.web.rest
 
 import io.clang_engineer.batch_explorer.service.QuartzSchedulerService
+import io.clang_engineer.batch_explorer.service.dto.ScheduleDTO
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -15,13 +16,11 @@ class QuartzResource(
     private val log = org.slf4j.LoggerFactory.getLogger(javaClass)
 
     @PostMapping("/schedule")
-    fun scheduleBatchJobExecution(@RequestBody data: Map<String, Any>): ResponseEntity<Void> {
+    fun scheduleBatchJobExecution(@RequestBody scheduleDTO: ScheduleDTO): ResponseEntity<Void> {
         log.info("Scheduling batch job execution")
 
-        quartzSchedulerService.scheduleBatchJobExecution(
-                data["cronExpression"] as String,
-                data["jobDataMap"] as Map<String, String>
-        )
+        quartzSchedulerService.scheduleBatchJobExecution(scheduleDTO)
+
         return ResponseEntity.ok().build()
     }
 

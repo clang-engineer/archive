@@ -1,6 +1,7 @@
 package io.clang_engineer.batch_explorer.service
 
 import io.clang_engineer.batch_explorer.job.QuartzJob
+import io.clang_engineer.batch_explorer.service.dto.ScheduleDTO
 import org.quartz.JobDataMap
 import org.quartz.Scheduler
 import org.springframework.stereotype.Component
@@ -8,27 +9,32 @@ import java.util.*
 
 @Component
 class QuartzSchedulerService(private val scheduler: Scheduler) {
-  fun scheduleBatchJobExecution(cronExpression: String, jobDataMap: Map<String, String>) {
-    val jobDetail = org.quartz.JobBuilder.newJob(QuartzJob::class.java)
-      .withIdentity("${UUID.randomUUID()}", "jobs")
-      .usingJobData(JobDataMap(jobDataMap))
-      .storeDurably()
-      .build()
+    fun scheduleBatchJobExecution(scheduleDTO: ScheduleDTO) {
+        val jobData = JobDataMap(mapOf(
+                "jobName" to scheduleDTO.jobName,
+                "query" to scheduleDTO.query,
+        ))
 
-    val trigger = org.quartz.TriggerBuilder.newTrigger()
-      .forJob(jobDetail)
-      .withIdentity("${UUID.randomUUID()}", "triggers")
-      .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule(cronExpression))
-      .build()
+        val jobDetail = org.quartz.JobBuilder.newJob(QuartzJob::class.java)
+                .withIdentity("${UUID.randomUUID()}", "jobs")
+                .usingJobData(jobData)
+                .storeDurably()
+                .build()
 
-    scheduler.scheduleJob(jobDetail, trigger)
-  }
+        val trigger = org.quartz.TriggerBuilder.newTrigger()
+                .forJob(jobDetail)
+                .withIdentity("${UUID.randomUUID()}", "triggers")
+                .withSchedule(org.quartz.CronScheduleBuilder.cronSchedule(scheduleDTO.cronExpression))
+                .build()
 
-  fun pauseAllJobs() {
-    scheduler.pauseAll()
-  }
+        scheduler.scheduleJob(jobDetail, trigger)
+    }
 
-  fun resumeAllJobs() {
-    scheduler.resumeAll()
-  }
+    fun pauseAllJobs() {
+        scheduler.pauseAll()
+    }
+
+    fun resumeAllJobs() {
+        scheduler.resumeAll()
+    }
 }

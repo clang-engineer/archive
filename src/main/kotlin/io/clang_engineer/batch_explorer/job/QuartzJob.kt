@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component
 @Component
 class QuartzJob(
         private val jobLauncher: JobLauncher,
-        private val sampleJob: Job
+        private val batchJob: Job
 ) : org.quartz.Job {
     override fun execute(context: JobExecutionContext?) {
         val jobDataMap = context?.jobDetail?.jobDataMap as org.quartz.JobDataMap
-        val jobParameters = transformQuartzJobDataMapToBatchJobParameters(jobDataMap)
+        val batchParameters = transformQuartzJobDataMapToBatchJobParameters(jobDataMap)
 
-        jobLauncher.run(sampleJob, jobParameters)
+        jobLauncher.run(batchJob, batchParameters)
     }
 }

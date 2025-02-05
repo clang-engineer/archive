@@ -26,19 +26,19 @@ class BatchConfiguration(
     private val STEP_NAME = "batch-explorer-step"
 
     @Bean
-    fun sampleJob(): Job {
-        return JobBuilder(JOB_NAME, jobRepository).start(sampleStep())
-                .listener(sampleJobListener()).preventRestart().build()
+    fun batchJob(): Job {
+        return JobBuilder(JOB_NAME, jobRepository).start(batchStep())
+                .listener(batchJobListener()).preventRestart().build()
     }
 
     @Bean
-    fun sampleStep(): Step {
+    fun batchStep(): Step {
         return StepBuilder(STEP_NAME, jobRepository)
-                .tasklet(sampleTasklet(), transactionManager).build()
+                .tasklet(batchTasklet(), transactionManager).build()
     }
 
     @Bean
-    fun sampleTasklet(): Tasklet {
+    fun batchTasklet(): Tasklet {
         return Tasklet { _, _ ->
             synchronized(this) {
                 val file = java.io.File("build/output.txt")
@@ -54,7 +54,7 @@ class BatchConfiguration(
     }
 
     @Bean
-    fun sampleJobListener(): JobExecutionListener {
+    fun batchJobListener(): JobExecutionListener {
         return object : JobExecutionListener {
             override fun beforeJob(jobExecution: org.springframework.batch.core.JobExecution) {
                 log.debug("Before job execution: ${jobExecution.jobInstance.jobName}")

@@ -2,7 +2,10 @@ import React from 'react';
 import {BrowserRouter} from "react-router-dom";
 import AppRoutes from "./routes";
 
+import "tabler-react/dist/Tabler.css";
 import "./app.scss";
+
+
 
 const App = () => <>
   <BrowserRouter>

@@ -8,7 +8,7 @@
     "start": "npm run webapp:dev --",
     "webapp:dev": "npm run webpack-dev-server -- --config webpack/webpack.dev.js",
     "webpack-dev-server": "webpack serve",
-    "webapp:build:dev": "webpack --config webpack/webpack.dev.js --env stats=minimal"
+    "webapp:build:dev": "webpack --config webpack/webpack.dev.js"
   },
   "config": {
   },

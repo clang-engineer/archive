@@ -22,8 +22,8 @@ const Navigation = () => {
         <CustomNavItem to="/" icon="home">
           Home
         </CustomNavItem>
-        <CustomNavItem to="/test1" icon="database">
-          Test 1
+        <CustomNavItem to="/batch-socket" icon="database">
+          Batch Socket
         </CustomNavItem>
         <CustomNavItem to="/test2" icon="database">
           Test 2

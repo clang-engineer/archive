@@ -5,10 +5,12 @@ import Navigation from "./navigation";
 
 const BasicLayout = () => {
   return (
-      <div>
+      <>
         <Navigation/>
-        <Outlet/>
-      </div>
+        <div className="p-3">
+          <Outlet/>
+        </div>
+      </>
   );
 }
 

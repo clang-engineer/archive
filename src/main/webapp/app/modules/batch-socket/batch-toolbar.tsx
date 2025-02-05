@@ -4,15 +4,15 @@ import {Button, Form, Grid} from "tabler-react";
 
 
 const BatchToolbar = React.forwardRef((props, ref) => {
-  const [jobName, setJobName] = React.useState<string | null>(null);
-  const [query, setQuery] = React.useState<string | null>(null);
+  const [jobName, setJobName] = React.useState<string>('');
+  const [query, setQuery] = React.useState<string>('');
   const [cronExpression, setCronExpression] = React.useState('0/5 * * * * ?');
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     if (!jobName || !query || !cronExpression) {
-      alert('Please fill all fields');
+      alert(`Please fill in all fields : jobName=${jobName}, query=${query}, cronExpression=${cronExpression}`);
       return;
     }
 
@@ -27,6 +27,22 @@ const BatchToolbar = React.forwardRef((props, ref) => {
         cronExpression,
       }),
     })
+    .then(response => {
+      if (!response.ok) {  // 2xx 범위 외의 상태 코드가 올 경우
+        return Promise.reject('Error scheduling job');
+      }
+      return response
+    })
+    .then(() => {
+      setJobName('');
+      setQuery('');
+      setCronExpression('0/5 * * * * ?');
+
+      alert('Job scheduled');
+    })
+    .catch((error) => {
+      alert(error || 'Error scheduling job');
+    });
   }
 
   return <Grid.Row>

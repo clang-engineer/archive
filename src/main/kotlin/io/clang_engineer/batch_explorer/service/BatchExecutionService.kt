@@ -90,5 +90,11 @@ class BatchExecutionService(
       log.info("JobExecution $jobExecutionId is not in a failed state.")
     }
   }
+
+  fun isJobNameExists(jobName: String): Boolean {
+    log.info("Checking if job name exists: $jobName")
+
+    return jobExplorer.jobNames.contains(jobName)
+  }
 }
 

@@ -52,14 +52,19 @@ const BatchSocket = () => {
       <>
         <BatchToolbar/>
         <Divider/>
-        {
-          loading ? <Loader/> :
-              <Grid.Row>
-                {jobExecutions.map((jobExecution) => (
-                    <JobExecution jobExecution={jobExecution} key={jobExecution.id}/>
-                ))}
-              </Grid.Row>
-        }
+        {loading && <Loader/>}
+        <Grid.Row>
+          {
+              !loading && jobExecutions.length === 0 &&
+              <Grid.Col>
+                <p>No job executions
+                </p>
+              </Grid.Col>
+          }
+          {jobExecutions.map((jobExecution) => (
+              <JobExecution jobExecution={jobExecution} key={jobExecution.id}/>
+          ))}
+        </Grid.Row>
       </>
   );
 }

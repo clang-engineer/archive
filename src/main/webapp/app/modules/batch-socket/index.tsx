@@ -3,6 +3,7 @@ import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
 import JobExecution from "./job-execution";
 import {IJobExecution} from "../../shared/model/job-execution.model";
+import {Grid} from "tabler-react";
 
 const BatchSocket = () => {
   const [jobExecutions, setJobExecutions] = useState<IJobExecution[]>([]);
@@ -76,14 +77,11 @@ const BatchSocket = () => {
             resume all
           </button>
         </form>
-        <div>
-          <div>title: job execution list</div>
-          <div id="job-executions" className="row">
-            {jobExecutions.map((jobExecution) => (
-                <JobExecution jobExecution={jobExecution} key={jobExecution.id}/>
-            ))}
-          </div>
-        </div>
+        <Grid.Row cards deck className="p-4">
+          {jobExecutions.map((jobExecution) => (
+              <JobExecution jobExecution={jobExecution} key={jobExecution.id}/>
+          ))}
+        </Grid.Row>k
       </>
   );
 }

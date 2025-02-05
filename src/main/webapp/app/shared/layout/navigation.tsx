@@ -22,13 +22,13 @@ const Navigation = () => {
         <CustomNavItem to="/" icon="home">
           Home
         </CustomNavItem>
-        <CustomNavItem to="/test1" icon="home">
+        <CustomNavItem to="/test1" icon="database">
           Test 1
         </CustomNavItem>
-        <CustomNavItem to="/test2" icon="home">
+        <CustomNavItem to="/test2" icon="database">
           Test 2
         </CustomNavItem>
-        <CustomNavItem to="/test3" icon="home">
+        <CustomNavItem to="/test3" icon="database">
           Test 3
         </CustomNavItem>
       </Nav>

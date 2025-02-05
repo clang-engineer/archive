@@ -3,14 +3,16 @@ import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
 import JobExecution from "./job-execution";
 import {IJobExecution} from "../../shared/model/job-execution.model";
-import {Grid} from "tabler-react";
+import {Grid, Loader} from "tabler-react";
 import BatchToolbar from "./batch-toolbar";
+import Divider from "../../shared/component/divider";
 
 const BatchSocket = () => {
-  const [cronExpression, setCronExpression] = useState('0/5 * * * * ?');
+  const [loading, setLoading] = useState<boolean>(false);
   const [jobExecutions, setJobExecutions] = useState<IJobExecution[]>([]);
 
   useEffect(() => {
+    setLoading(true);
     fetch('api/job/executions')
     .then(response => response.json())
     .then(data => {
@@ -18,9 +20,11 @@ const BatchSocket = () => {
     })
     .then(() => {
       connectStomp();
+    })
+    .finally(() => {
+      setLoading(false);
     });
   }, []);
-
 
   const connectStomp = () => {
     const socket = new SockJS('/websocket/tracker');
@@ -43,14 +47,19 @@ const BatchSocket = () => {
       });
     });
   }
+
   return (
       <>
         <BatchToolbar/>
-        <Grid.Row cards deck className="p-4">
-          {jobExecutions.map((jobExecution) => (
-              <JobExecution jobExecution={jobExecution} key={jobExecution.id}/>
-          ))}
-        </Grid.Row>
+        <Divider/>
+        {
+          loading ? <Loader/> :
+              <Grid.Row>
+                {jobExecutions.map((jobExecution) => (
+                    <JobExecution jobExecution={jobExecution} key={jobExecution.id}/>
+                ))}
+              </Grid.Row>
+        }
       </>
   );
 }

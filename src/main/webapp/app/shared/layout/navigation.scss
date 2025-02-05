@@ -23,6 +23,13 @@
 
       &:hover {
         background-color: #e5e5e5;
+        font-weight: bold;
+      }
+
+      &.active {
+        background-color: #ddd;
+        color: #333;
+        text-decoration: underline;
       }
     }
 

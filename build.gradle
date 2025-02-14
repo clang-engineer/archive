@@ -49,3 +49,5 @@ kotlin {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+defaultTasks "bootRun"

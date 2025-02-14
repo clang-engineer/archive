@@ -18,7 +18,7 @@ module.exports = {
       },
       {
         test: /\.scss$/, // SCSS 파일 처리 규칙
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
       },
       {
         test: /\.css$/,

@@ -25,8 +25,8 @@ const Navigation = () => {
         <CustomNavItem to="/batch-socket" icon="database">
           Batch Socket
         </CustomNavItem>
-        <CustomNavItem to="/test2" icon="database">
-          Test 2
+        <CustomNavItem to="/datasource" icon="database">
+          Datasource
         </CustomNavItem>
         <CustomNavItem to="/test3" icon="database">
           Test 3

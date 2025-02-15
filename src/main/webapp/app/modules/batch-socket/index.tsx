@@ -3,7 +3,6 @@ import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
 import JobExecution from "./job-execution";
 import {IJobExecution} from "../../shared/model/job-execution.model";
-import {Grid} from "tabler-react";
 import BatchToolbar from "./batch-toolbar";
 import Divider from "../../shared/component/divider";
 import Loader from "../../shared/component/Loader";
@@ -54,18 +53,18 @@ const BatchSocket = () => {
         <BatchToolbar/>
         <Divider/>
         {loading && <Loader/>}
-        <Grid.Row>
+        <div className="grid grid-cols-4 gap-4">
           {
               !loading && jobExecutions.length === 0 &&
-              <Grid.Col>
+              <div>
                 <p>No job executions
                 </p>
-              </Grid.Col>
+              </div>
           }
           {jobExecutions.map((jobExecution) => (
               <JobExecution jobExecution={jobExecution} key={jobExecution.id}/>
           ))}
-        </Grid.Row>
+        </div>
       </>
   );
 }

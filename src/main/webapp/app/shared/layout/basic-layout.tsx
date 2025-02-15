@@ -1,6 +1,7 @@
 import React from 'react';
 import {Outlet} from 'react-router-dom';
 import Navigation from "./navigation";
+import MainCard from "../component/MainCard";
 
 
 const BasicLayout = () => {
@@ -8,7 +9,9 @@ const BasicLayout = () => {
       <>
         <Navigation/>
         <div className="p-3">
-          <Outlet/>
+          <MainCard>
+            <Outlet/>
+          </MainCard>
         </div>
       </>
   );

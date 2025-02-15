@@ -1,7 +1,24 @@
 import React from 'react';
+import Button from "../../shared/component/Button";
 
-import {Button, Form, Grid} from "tabler-react";
-
+const InputField = ({label, id, placeholder, value, onChange}) => (
+    <div>
+      <label htmlFor={id} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        {label}
+      </label>
+      <input
+          type="text"
+          id={id}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+                 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      />
+    </div>
+);
 
 const BatchToolbar = React.forwardRef((props, ref) => {
   const [jobName, setJobName] = React.useState<string>('');
@@ -45,51 +62,25 @@ const BatchToolbar = React.forwardRef((props, ref) => {
     });
   }
 
-  return <Grid.Row>
-    <Grid.Col>
-      <Form>
-        <Grid.Row>
-          <Grid.Col>
-            <Form.Input type="text" id="job-name" placeholder="job name"
-                        value={jobName}
-                        onChange={(e) => setJobName(e.target.value)}
-            />
-          </Grid.Col>
-          <Grid.Col>
-            <Form.Input type="text" id="query" placeholder="query"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-            />
-          </Grid.Col>
-          <Grid.Col>
-            <Form.Input type="text" id="cron-expression" placeholder="cron expression"
-                        value="0/5 * * * * ?"
-                        onChange={(e) => setCronExpression(e.target.value)}
-            />
-          </Grid.Col>
-        </Grid.Row>
-      </Form>
-    </Grid.Col>
-    <Grid.Col>
-      <Button.List>
-        <Button color="primary"
-                onClick={() => onSubmit(event)}>
-          schedule
-        </Button>
-        <Button color="secondary" onClick={() => {
-          fetch('api/quartz/pause', {method: 'POST'})
-        }}>
-          Pause all
-        </Button>
-        <Button color="warnging" onClick={() => {
-          fetch('api/quartz/resume', {method: 'POST'})
-        }}>
-          Resume all
-        </Button>
-      </Button.List>
-    </Grid.Col>
-  </Grid.Row>
-
+  return <div className="grid grid-cols-3 gap-4">
+    <InputField label="Job name" id="job-name" placeholder="job name" value={jobName}
+                onChange={(e) => setJobName(e.target.value)}/>
+    <InputField label="Query" id="query" placeholder="query" value={query}
+                onChange={(e) => setQuery(e.target.value)}/>
+    <InputField label="Cron expression" id="cron-expression" placeholder="cron expression"
+                value={cronExpression} onChange={(e) => setCronExpression(e.target.value)}/>
+    <div>
+      <Button className="bg-green-500 hover:bg-green-500 active:bg-green-700 mr-2"
+              onClick={(e) => {
+                onSubmit(e);
+              }}> Schedule</Button>
+      <Button className="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 mr-2"
+              onClick={() => fetch('api/quartz/pause', {method: 'POST'})}>Pause all</Button>
+      <Button
+          className="bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700"
+          onClick={() => fetch('api/quartz/resume', {method: 'POST'})}>Resume all</Button>
+    </div>
+  </div>
 });
 
 export default BatchToolbar;

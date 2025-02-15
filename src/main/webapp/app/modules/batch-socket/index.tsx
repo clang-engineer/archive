@@ -3,9 +3,10 @@ import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
 import JobExecution from "./job-execution";
 import {IJobExecution} from "../../shared/model/job-execution.model";
-import {Grid, Loader} from "tabler-react";
+import {Grid} from "tabler-react";
 import BatchToolbar from "./batch-toolbar";
 import Divider from "../../shared/component/divider";
+import Loader from "../../shared/component/Loader";
 
 const BatchSocket = () => {
   const [loading, setLoading] = useState<boolean>(false);

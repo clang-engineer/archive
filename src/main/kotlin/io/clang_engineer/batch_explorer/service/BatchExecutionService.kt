@@ -70,7 +70,7 @@ class BatchExecutionService(
     log.info("Stopping job execution: $jobExecutionId")
 
     val jobExecution = jobExplorer.getJobExecution(jobExecutionId) as org.springframework.batch.core.JobExecution
-    if (jobExecution !== null && jobExecution.isRunning) {
+    if (jobExecution.isRunning) {
       jobOperator.stop(jobExecutionId)
     }
   }

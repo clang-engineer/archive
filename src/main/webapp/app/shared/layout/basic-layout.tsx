@@ -1,7 +1,7 @@
 import React from 'react';
 import {Outlet} from 'react-router-dom';
 import Navigation from "./navigation";
-import MainCard from "../component/MainCard";
+import MainCard from "../component/main-card";
 
 
 const BasicLayout = () => {

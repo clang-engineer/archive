@@ -4,6 +4,8 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 	plugins {
+		id 'org.springframework.boot' version "${springBootVersion}"
+		id "org.flywaydb.flyway" version "${flywayPluginVersion}"
 		id 'com.github.node-gradle.node' version "${gradleNodePluginVersion}"
 	}
 }

@@ -6,6 +6,7 @@ import io.clang_engineer.batch_explorer.repository.DatasourceRepository
 import io.clang_engineer.batch_explorer.service.mapper.DatasourceMapper
 import jakarta.persistence.EntityManager
 import org.assertj.core.api.Assertions.assertThat
+import org.hamcrest.Matchers.hasItem
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -13,7 +14,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import org.springframework.transaction.annotation.Transactional
 
@@ -63,6 +65,74 @@ class DatasourceResourceIT {
     assertThat(testDatasource.title).isEqualTo(DEFAULT_TITLE)
     assertThat(testDatasource.description).isEqualTo(DEFAULT_DESCRIPTION)
     assertThat(testDatasource.activated).isEqualTo(DEFAULT_ACTIVATED)
+  }
+
+  @Test
+  @Transactional
+  fun `test get all datasource entities`() {
+    datasourceRepository.saveAndFlush(datasource)
+
+    mockMvc.perform(get("/api/datasources"))
+      .andExpect(status().isOk)
+      .andExpect(jsonPath("$.[*].id").value(hasItem(datasource.id!!.toInt())))
+      .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
+      .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
+  }
+
+  @Test
+  @Transactional
+  fun `test get single datasource entity`() {
+    datasourceRepository.saveAndFlush(datasource)
+
+    mockMvc.perform(get("/api/datasources/{id}", datasource.id))
+      .andExpect(status().isOk)
+      .andExpect(jsonPath("$.id").value(datasource.id!!.toInt()))
+      .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
+      .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
+  }
+
+  @Test
+  @Transactional
+  fun `test update datasource entity`() {
+    datasourceRepository.saveAndFlush(datasource)
+    val databaseSizeBeforeUpdate = datasourceRepository.findAll().size
+
+    val updatedDatasource = datasourceRepository.findById(datasource.id!!).get()
+    em.detach(updatedDatasource)
+    updatedDatasource.title = UPDATED_TITLE
+    updatedDatasource.description = UPDATED_DESCRIPTION
+    updatedDatasource.activated = UPDATED_ACTIVATED
+
+    val datasourceDTO = datasourceMapper.toDto(updatedDatasource)
+
+    mockMvc.perform(
+      put("/api/datasources")
+        .contentType(APPLICATION_JSON)
+        .content(convertObjectToJsonBytes(datasourceDTO))
+    ).andExpect(status().isOk)
+
+    val datasourceList = datasourceRepository.findAll()
+    assertThat(datasourceList).hasSize(databaseSizeBeforeUpdate)
+
+    val testDatasource = datasourceList[datasourceList.size - 1]
+    assertThat(testDatasource.title).isEqualTo(UPDATED_TITLE)
+    assertThat(testDatasource.description).isEqualTo(UPDATED_DESCRIPTION)
+    assertThat(testDatasource.activated).isEqualTo(UPDATED_ACTIVATED)
+  }
+
+  @Test
+  @Transactional
+  fun `test delete datasource entity`() {
+    datasourceRepository.saveAndFlush(datasource)
+    val databaseSizeBeforeDelete = datasourceRepository.findAll().size
+
+    mockMvc.perform(
+      delete("/api/datasources/{id}", datasource.id)
+        .accept(APPLICATION_JSON)
+    ).andExpect(status().isNoContent)
+
+    val datasourceList = datasourceRepository.findAll()
+    assertThat(datasourceList).hasSize(databaseSizeBeforeDelete - 1)
   }
 
 

@@ -1,6 +1,7 @@
 package io.clang_engineer.batch_explorer.domain
 
 import jakarta.persistence.*
+import java.time.Instant
 
 @Entity
 @Table(name = "tbl_datasource")

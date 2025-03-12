@@ -51,6 +51,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/main/webapp/index.html'),
       title: 'Webpack Dev Server Example',
-    }),
-  ],
+      // chunksSortMode: 'auto',
+      // inject: 'body',
+      base: '/'
+    })
+  ]
 };

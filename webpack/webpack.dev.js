@@ -8,6 +8,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      app: path.resolve(__dirname, '../src/main/webapp/app/'), // 추가된 부분
+    },
   },
   module: {
     rules: [

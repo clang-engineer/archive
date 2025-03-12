@@ -1,11 +1,19 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
-const Datasource = () => {
-  return <div className="bg-blue-500 p-5">
-    <h1 className="text-3xl font-bold underline text-center">
-      TailWind Test
-    </h1>
-  </div>
-}
+import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
+import Datasource from './datasource';
 
-export default Datasource;
+const DatasourceRoutes = () => (
+    <ErrorBoundaryRoutes>
+      <Route index element={<Datasource/>}/>
+      {/*<Route path="new" element={<PointUpdate />} />*/}
+      {/*<Route path=":id">*/}
+      {/*  <Route index element={<PointDetail />} />*/}
+      {/*  <Route path="edit" element={<PointUpdate />} />*/}
+      {/*  <Route path="delete" element={<PointDeleteDialog />} />*/}
+      {/*</Route>*/}
+    </ErrorBoundaryRoutes>
+);
+
+export default DatasourceRoutes;

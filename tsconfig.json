@@ -4,7 +4,11 @@
     "target": "es6",
     "module": "es2020",
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "app/*": ["src/main/webapp/app/*"]
+    }
   },
   "include": [
     "src/main/webapp/app"

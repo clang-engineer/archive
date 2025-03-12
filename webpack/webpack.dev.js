@@ -8,11 +8,14 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      app: path.resolve(__dirname, '../src/main/webapp/app/'), // 추가된 부분
+    },
   },
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.tsx?$/,
         use: 'ts-loader', // ts-loader 사용
         exclude: /node_modules/, // node_modules는 제외
       },

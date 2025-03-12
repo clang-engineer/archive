@@ -1,9 +1,11 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { loadingBarReducer as loadingBar } from 'react-redux-loading-bar';
-/* jhipster-needle-add-reducer-import - JHipster will add reducer here */
+import entitiesReducers from 'app/entities/reducers';
+
 
 const rootReducer: ReducersMapObject = {
   loadingBar,
+  ...entitiesReducers,
 };
 
 export default rootReducer;

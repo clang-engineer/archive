@@ -12,7 +12,6 @@ import org.springframework.messaging.simp.SimpMessageSendingOperations
 import org.springframework.transaction.PlatformTransactionManager
 
 @Configuration
-@EnableBatchProcessing
 class BatchConfiguration(
         private val transactionManager: PlatformTransactionManager,
         private val jobRepository: JobRepository,

@@ -41,7 +41,7 @@ const Navigation = () => {
           <NavLink to="/batch-socket" icon={<IconNetwork/>}>
             Batch Socket
           </NavLink>
-          <NavLink to="/datasource" icon={<IconDatabase/>}>
+          <NavLink to="/entities/datasource" icon={<IconDatabase/>}>
             Datasource
           </NavLink>
         </ul>

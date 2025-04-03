@@ -3,9 +3,9 @@ import { createAsyncThunk, isFulfilled, isPending } from '@reduxjs/toolkit';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
 import { createEntitySlice, EntityState, IQueryParams, serializeAxiosError } from 'app/shared/reducers/reducer.utils';
-import { defaultValue, IPoint } from 'app/shared/model/datasource.model';
+import { defaultValue, IDatasource } from 'app/shared/model/datasource.model';
 
-const initialState: EntityState<IPoint> = {
+const initialState: EntityState<IDatasource> = {
   loading: false,
   errorMessage: null,
   entities: [],
@@ -21,22 +21,22 @@ const apiUrl = 'api/datasources';
 
 export const getEntities = createAsyncThunk('datasource/fetch_entity_list', async ({ page, size, sort }: IQueryParams) => {
   const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}&` : '?'}cacheBuster=${new Date().getTime()}`;
-  return axios.get<IPoint[]>(requestUrl);
+  return axios.get<IDatasource[]>(requestUrl);
 });
 
 export const getEntity = createAsyncThunk(
   'datasource/fetch_entity',
   async (id: string | number) => {
     const requestUrl = `${apiUrl}/${id}`;
-    return axios.get<IPoint>(requestUrl);
+    return axios.get<IDatasource>(requestUrl);
   },
   { serializeError: serializeAxiosError }
 );
 
 export const createEntity = createAsyncThunk(
   'datasource/create_entity',
-  async (entity: IPoint, thunkAPI) => {
-    const result = await axios.post<IPoint>(apiUrl, cleanEntity(entity));
+  async (entity: IDatasource, thunkAPI) => {
+    const result = await axios.post<IDatasource>(apiUrl, cleanEntity(entity));
     thunkAPI.dispatch(getEntities({}));
     return result;
   },
@@ -45,8 +45,8 @@ export const createEntity = createAsyncThunk(
 
 export const updateEntity = createAsyncThunk(
   'datasource/update_entity',
-  async (entity: IPoint, thunkAPI) => {
-    const result = await axios.put<IPoint>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
+  async (entity: IDatasource, thunkAPI) => {
+    const result = await axios.put<IDatasource>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
     thunkAPI.dispatch(getEntities({}));
     return result;
   },
@@ -55,8 +55,8 @@ export const updateEntity = createAsyncThunk(
 
 export const partialUpdateEntity = createAsyncThunk(
   'datasource/partial_update_entity',
-  async (entity: IPoint, thunkAPI) => {
-    const result = await axios.patch<IPoint>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
+  async (entity: IDatasource, thunkAPI) => {
+    const result = await axios.patch<IDatasource>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
     thunkAPI.dispatch(getEntities({}));
     return result;
   },
@@ -67,7 +67,7 @@ export const deleteEntity = createAsyncThunk(
   'datasource/delete_entity',
   async (id: string | number, thunkAPI) => {
     const requestUrl = `${apiUrl}/${id}`;
-    const result = await axios.delete<IPoint>(requestUrl);
+    const result = await axios.delete<IDatasource>(requestUrl);
     thunkAPI.dispatch(getEntities({}));
     return result;
   },
@@ -76,7 +76,7 @@ export const deleteEntity = createAsyncThunk(
 
 // slice
 
-export const PointSlice = createEntitySlice({
+export const DatasourceSlice = createEntitySlice({
   name: 'datasource',
   initialState,
   extraReducers(builder) {
@@ -119,7 +119,7 @@ export const PointSlice = createEntitySlice({
   },
 });
 
-export const { reset } = PointSlice.actions;
+export const { reset } = DatasourceSlice.actions;
 
 // Reducer
-export default PointSlice.reducer;
+export default DatasourceSlice.reducer;

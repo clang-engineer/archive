@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { loadingBarMiddleware } from 'react-redux-loading-bar';
+import sharedReducers from 'app/shared/reducers';
 
 const store = configureStore({
-  reducer: {},
+  reducer: sharedReducers,
   middleware: getDefaultMiddleware =>
       getDefaultMiddleware()
       .concat(loadingBarMiddleware())

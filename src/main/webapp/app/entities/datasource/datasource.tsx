@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useAppDispatch, useAppSelector } from "app/config/store";
+import { getEntities } from "app/entities/datasource/datasource.reducer";
 
 const Datasource = () => {
-  alert('Datasource');
+  const dispatch = useAppDispatch();
+
+  const entities = useAppSelector(state => state.datasource.entities);
+
+  useEffect(() => {
+    dispatch(getEntities({}));
+  }, []);
+
   return (
-    <div>
-      Datasource
-    </div>
+      <div>
+        {
+          JSON.stringify(entities)
+        }
+      </div>
   );
 }
 

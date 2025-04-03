@@ -6,7 +6,7 @@ import sinon from 'sinon';
 
 import reducer, { createEntity, deleteEntity, getEntities, getEntity, partialUpdateEntity, reset, updateEntity } from './datasource.reducer';
 import { EntityState } from 'app/shared/reducers/reducer.utils';
-import { defaultValue, IPoint } from 'app/shared/model/datasource.model';
+import { defaultValue, IDatasource } from 'app/shared/model/datasource.model';
 
 describe('Entities reducer tests', () => {
   function isEmpty(element): boolean {
@@ -17,7 +17,7 @@ describe('Entities reducer tests', () => {
     }
   }
 
-  const initialState: EntityState<IPoint> = {
+  const initialState: EntityState<IDatasource> = {
     loading: false,
     errorMessage: null,
     entities: [],

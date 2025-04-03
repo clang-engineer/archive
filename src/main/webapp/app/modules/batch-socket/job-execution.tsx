@@ -1,6 +1,6 @@
 import React from 'react';
-import {IJobExecution} from "../../shared/model/job-execution.model";
-import Button from "../../shared/component/Button";
+import { IJobExecution } from "../../shared/model/job-execution.model";
+import Button from "../../shared/component/button/gradient-button";
 
 interface IJobExecutionProps {
   jobExecution: IJobExecution;
@@ -27,16 +27,12 @@ const JobExecution = (props: IJobExecutionProps) => {
           </div>
           <div className="bg-gray-100 p-4 flex justify-content-end">
             <Button
-                className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 mr-1"
                 onClick={() => fetch(`api/job/executions/${jobExecution.id}/stop`, {method: 'POST'})}
             > Stop </Button>
             <Button
-                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mr-1"
                 onClick={() => fetch(`api/job/executions/${jobExecution.id}/restart`, {method: 'POST'})}
             > Restart </Button>
-            <Button className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
-              Delete
-            </Button>
+            <Button> Delete </Button>
           </div>
         </div>
       </div>

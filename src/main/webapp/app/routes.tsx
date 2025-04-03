@@ -6,6 +6,7 @@ import Home from "./modules/home";
 import Loadable from 'react-loadable';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 import PageNotFound from "app/shared/error/page-not-found";
+import AppLayout from "app/tailadmin/layout/AppLayout";
 
 const loading = <div>loading ...</div>;
 
@@ -17,7 +18,7 @@ const EntityRoutes = Loadable({
 const AppRoutes = () => {
   return (
       <ErrorBoundaryRoutes>
-        <Route element={<BasicLayout/>}>
+        <Route element={<AppLayout/>}>
           <Route index element={<Home/>}/>
           <Route path="/batch-socket" element={<BatchSocket/>}/>
           {/*<Route path="/datasource" element={<Datasource/>}/>*/}

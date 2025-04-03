@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter} from "react-router-dom";
 import AppRoutes from "./routes";
 
-import "./app.scss";
+import "./app.css";
 import { LoadingBar } from "react-redux-loading-bar";
 
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');

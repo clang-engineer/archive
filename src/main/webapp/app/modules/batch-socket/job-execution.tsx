@@ -1,6 +1,6 @@
 import React from 'react';
 import {IJobExecution} from "../../shared/model/job-execution.model";
-import Button from "../../shared/component/Button";
+import Button from "../../shared/component/button";
 
 interface IJobExecutionProps {
   jobExecution: IJobExecution;

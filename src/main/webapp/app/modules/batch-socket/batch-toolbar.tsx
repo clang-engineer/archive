@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "../../shared/component/Button";
+import Button from "../../shared/component/button";
 
 const InputField = ({label, id, placeholder, value, onChange}) => (
     <div>

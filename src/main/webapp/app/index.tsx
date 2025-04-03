@@ -1,7 +1,11 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import {StrictMode} from "react";
+import {ThemeProvider} from "./tailadmin/context/ThemeContext";
+
+
+import {createRoot} from 'react-dom/client';
 import AppComponent from "./app";
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import getStore from "./config/store";
 
 
@@ -12,9 +16,13 @@ const store = getStore();
 
 const render = Component =>
     root.render(
-        <Provider store={store}>
-          <Component/>
-        </Provider>
+        <StrictMode>
+            <ThemeProvider>
+                <Provider store={store}>
+                    <Component/>
+                </Provider>
+            </ThemeProvider>
+        </StrictMode>
     );
 
 render(AppComponent);

@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from "app/config/store";
 import { getEntities } from "app/entities/datasource/datasource.reducer";
-import CustomButton from "app/shared/component/button";
+import Button from "app/shared/component/button/gradient-button";
 
 const Datasource = () => {
   const dispatch = useAppDispatch();
@@ -15,13 +15,11 @@ const Datasource = () => {
   return (
       <div>
 
-        <CustomButton className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 mr-1"
-            onClick={() => {}}
-        > Stop </CustomButton>
+        <Button>
+          test
+        </Button>
 
-        {
-          JSON.stringify(entities)
-        }
+
       </div>
   );
 }

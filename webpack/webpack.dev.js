@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/main/webapp/app/index.tsx'),
@@ -64,6 +65,11 @@ module.exports = {
       // chunksSortMode: 'auto',
       // inject: 'body',
       base: '/'
-    })
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './src/main/webapp/content/', to: 'content/' }
+      ],
+    }),
   ]
 };

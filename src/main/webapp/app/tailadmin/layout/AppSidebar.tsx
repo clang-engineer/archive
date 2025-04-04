@@ -63,6 +63,7 @@ const othersItems: NavItem[] = [
       { name: "User Profiles", path: "/sample/user-profiles" },
       { name: "Basic Tables", path: "/sample/basic-tables" },
       { name: "Form Elements", path: "/sample/form-elements" },
+      { name: "Dashboard", path: "/sample/dashboard" },
       { name: "Blank", path: "/sample/blank" },
     ],
   }

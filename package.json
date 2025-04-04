@@ -27,7 +27,9 @@
     "axios": "0.27.2",
     "react-loadable": "5.5.0",
     "react-helmet-async": "^2.0.5",
-    "tailwind-merge": "^3.0.1"
+    "tailwind-merge": "^3.0.1",
+    "react-dropzone": "^14.3.5",
+    "react-flatpickr": "^3.10.13"
   },
   "devDependencies": {
     "@reduxjs/toolkit": "1.8.5",

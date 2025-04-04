@@ -56,6 +56,14 @@ const othersItems: NavItem[] = [
       { name: "Sign Up", path: "/signup", pro: false },
     ],
   },
+  {
+    icon: <CalenderIcon />,
+    name: "Sample",
+    subItems: [
+      { name: "User Profiles", path: "/tailwind/user-profiles" },
+      { name: "Blank", path: "/tailwind/blank" },
+    ],
+  }
 ];
 
 const AppSidebar: React.FC = () => {

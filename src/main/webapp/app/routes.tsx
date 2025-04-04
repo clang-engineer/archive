@@ -1,12 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import BasicLayout from "./shared/layout/basic-layout";
+import { Route, Routes } from 'react-router-dom';
 import BatchSocket from "./modules/batch-socket";
 import Home from "./modules/home";
 import Loadable from 'react-loadable';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 import PageNotFound from "app/shared/error/page-not-found";
 import AppLayout from "app/tailadmin/layout/AppLayout";
+import UserProfiles from "app/tailadmin/pages/UserProfiles";
+import Blank from "app/tailadmin/pages/Blank";
 
 const loading = <div>loading ...</div>;
 
@@ -21,10 +22,13 @@ const AppRoutes = () => {
         <Route element={<AppLayout/>}>
           <Route index element={<Home/>}/>
           <Route path="/batch-socket" element={<BatchSocket/>}/>
-          {/*<Route path="/datasource" element={<Datasource/>}/>*/}
-          <Route path="/test2" element={<h1>Test 2</h1>}/>
-          <Route path="/test3" element={<h1>Test 3</h1>}/>
           <Route path="entities/*" element={<EntityRoutes/>}/>
+          <Route path="tailwind/*" element={
+            <Routes>
+              <Route path="user-profiles" element={<UserProfiles/>}/>
+              <Route path="blank" element={<Blank/>}/>
+            </Routes>
+          }/>
         </Route>
         <Route path="*" element={<PageNotFound/>}/>
       </ErrorBoundaryRoutes>

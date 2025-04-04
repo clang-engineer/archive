@@ -60,9 +60,9 @@ const othersItems: NavItem[] = [
     icon: <CalenderIcon />,
     name: "Sample",
     subItems: [
-      { name: "User Profiles", path: "/tailwind/user-profiles" },
-      { name: "Basic Tables", path: "/tailwind/basic-tables" },
-      { name: "Blank", path: "/tailwind/blank" },
+      { name: "User Profiles", path: "/sample/user-profiles" },
+      { name: "Basic Tables", path: "/sample/basic-tables" },
+      { name: "Blank", path: "/sample/blank" },
     ],
   }
 ];

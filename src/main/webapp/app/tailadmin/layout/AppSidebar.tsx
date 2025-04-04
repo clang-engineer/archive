@@ -61,6 +61,7 @@ const othersItems: NavItem[] = [
     name: "Sample",
     subItems: [
       { name: "User Profiles", path: "/tailwind/user-profiles" },
+      { name: "Basic Tables", path: "/tailwind/basic-tables" },
       { name: "Blank", path: "/tailwind/blank" },
     ],
   }

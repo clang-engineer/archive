@@ -8,6 +8,7 @@ import AppLayout from "app/tailadmin/layout/AppLayout";
 import UserProfiles from "app/tailadmin/pages/UserProfiles";
 import Blank from "app/tailadmin/pages/Blank";
 import NotFound from "app/tailadmin/pages/OtherPage/NotFound";
+import BasicTables from "app/tailadmin/pages/Tables/BasicTables";
 
 const loading = <div>loading ...</div>;
 
@@ -25,6 +26,7 @@ const AppRoutes = () => {
           <Route path="entities/*" element={<EntityRoutes/>}/>
           <Route path="tailwind/*" element={
             <Routes>
+              <Route path="basic-tables" element={<BasicTables />} />
               <Route path="user-profiles" element={<UserProfiles/>}/>
               <Route path="blank" element={<Blank/>}/>
             </Routes>

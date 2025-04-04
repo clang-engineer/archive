@@ -3,6 +3,8 @@ import {BrowserRouter} from "react-router-dom";
 import AppRoutes from "./routes";
 
 import "./app.css";
+import "flatpickr/dist/flatpickr.css";
+
 import { LoadingBar } from "react-redux-loading-bar";
 
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');

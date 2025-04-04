@@ -6,7 +6,6 @@ import PageBreadcrumb from "app/tailadmin/components/common/PageBreadCrumb";
 import ComponentCard from "app/tailadmin/components/common/ComponentCard";
 import DatasourceTable from "app/entities/datasource/datasource-table";
 import {PlusIcon} from "app/tailadmin/icons";
-import DatasourceCreateModal from "app/entities/datasource/datasource-create-modal";
 
 const Datasource = () => {
     const dispatch = useAppDispatch();
@@ -37,7 +36,6 @@ const Datasource = () => {
                     <DatasourceTable/>
                 </ComponentCard>
             </div>
-            <DatasourceCreateModal/>
         </>
     );
 }

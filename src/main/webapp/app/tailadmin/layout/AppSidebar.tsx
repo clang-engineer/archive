@@ -50,13 +50,6 @@ const othersItems: NavItem[] = [
     ],
   },
   {
-    icon: <PlugInIcon />,
-    name: "Authentication",
-    subItems: [
-      { name: "Sign Up", path: "/signup", pro: false },
-    ],
-  },
-  {
     icon: <CalenderIcon />,
     name: "Sample",
     subItems: [

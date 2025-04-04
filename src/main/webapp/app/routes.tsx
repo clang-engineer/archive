@@ -4,10 +4,10 @@ import BatchSocket from "./modules/batch-socket";
 import Home from "./modules/home";
 import Loadable from 'react-loadable';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
-import PageNotFound from "app/shared/error/page-not-found";
 import AppLayout from "app/tailadmin/layout/AppLayout";
 import UserProfiles from "app/tailadmin/pages/UserProfiles";
 import Blank from "app/tailadmin/pages/Blank";
+import NotFound from "app/tailadmin/pages/OtherPage/NotFound";
 
 const loading = <div>loading ...</div>;
 
@@ -30,7 +30,7 @@ const AppRoutes = () => {
             </Routes>
           }/>
         </Route>
-        <Route path="*" element={<PageNotFound/>}/>
+        <Route path="*" element={<NotFound />} />
       </ErrorBoundaryRoutes>
   );
 }

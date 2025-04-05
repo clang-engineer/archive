@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: path.resolve(__dirname, '../src/main/webapp/app/index.tsx'),
   output: {
     path: path.resolve(__dirname, '../build/resources/main/static/'),

@@ -6,8 +6,10 @@ import {Button} from "app/shacdn/components/ui/button";
 
 "use client"
 
-// export const columns: ColumnDef<IDatasource>[] = [
-export const columns = (onEditClick: (row: IDatasource) => void): ColumnDef<IDatasource>[] => [
+export const columns = (props: {
+    onEditClick: (row: IDatasource) => void,
+    onDeleteClick: (id: number) => void
+}): ColumnDef<IDatasource>[] => [
     {
         accessorKey: "id",
         header: "ID",
@@ -23,13 +25,13 @@ export const columns = (onEditClick: (row: IDatasource) => void): ColumnDef<IDat
     {
         accessorKey: "activated",
         header: "Activated",
-        cell: ({ row }) => {
+        cell: ({row}) => {
             const activated = row.getValue("activated");
             return (
-                    <Checkbox
-                        checked={Boolean(activated)}
-                        disabled
-                    />
+                <Checkbox
+                    checked={Boolean(activated)}
+                    disabled
+                />
             );
         },
     },
@@ -37,12 +39,10 @@ export const columns = (onEditClick: (row: IDatasource) => void): ColumnDef<IDat
         accessorKey: "edit",
         header: "Edit",
         cell: ({row}) => (
-            <Button
-                variant="outline"
-                onClick={() => onEditClick(row.original)}
-            >
-                Edit
-            </Button>
+            <>
+                <Button variant="outline" size="icon" onClick={() => props.onEditClick(row.original)}> E </Button>
+                <Button variant="outline" size="icon" onClick={() => props.onDeleteClick(row.original.id)}> D </Button>
+            </>
         ),
 
     }

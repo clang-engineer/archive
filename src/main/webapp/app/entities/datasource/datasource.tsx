@@ -36,10 +36,16 @@ const Datasource = () => {
                     </Button>
 
                 }>
-                    <DataTable columns={
+                    <DataTable
+                        columns={
                         columns(
-                            (row) => {
-                                datasourceUpdateRef.current.open(row);
+                            {
+                                onEditClick: (row) => {
+                                    datasourceUpdateRef.current.open(row);
+                                },
+                                onDeleteClick: (id) => {
+                                    alert("Delete " + id);
+                                }
                             }
                         )
                     } data={entities}/>

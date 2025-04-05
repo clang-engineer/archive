@@ -2,10 +2,12 @@ import React from "react";
 import {ColumnDef} from "@tanstack/react-table"
 import {IDatasource} from "app/shared/model/datasource.model";
 import {Checkbox} from "app/shacdn/components/ui/checkbox";
+import {Button} from "app/shacdn/components/ui/button";
 
 "use client"
 
-export const columns: ColumnDef<IDatasource>[] = [
+// export const columns: ColumnDef<IDatasource>[] = [
+export const columns = (onEditClick: (row: IDatasource) => void): ColumnDef<IDatasource>[] => [
     {
         accessorKey: "id",
         header: "ID",
@@ -30,5 +32,18 @@ export const columns: ColumnDef<IDatasource>[] = [
                     />
             );
         },
+    },
+    {
+        accessorKey: "edit",
+        header: "Edit",
+        cell: ({row}) => (
+            <Button
+                variant="outline"
+                onClick={() => onEditClick(row.original)}
+            >
+                Edit
+            </Button>
+        ),
+
     }
 ]

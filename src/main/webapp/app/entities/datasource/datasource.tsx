@@ -30,13 +30,19 @@ const Datasource = () => {
             <div className="space-y-6">
                 <ComponentCard title={
                     <Button onClick={() => {
-                        datasourceUpdateRef.current.open();
+                        datasourceUpdateRef.current.open({});
                     }}>
                         Add Datasource
                     </Button>
 
                 }>
-                    <DataTable columns={columns} data={entities}/>
+                    <DataTable columns={
+                        columns(
+                            (row) => {
+                                datasourceUpdateRef.current.open(row);
+                            }
+                        )
+                    } data={entities}/>
                 </ComponentCard>
             </div>
             <DatasourceUpdate ref={datasourceUpdateRef}/>

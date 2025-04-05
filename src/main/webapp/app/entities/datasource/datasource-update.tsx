@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 
 import {Button} from "app/shacdn/components/ui/button"
 import {
@@ -12,8 +12,8 @@ import {
 import {Input} from "app/shacdn/components/ui/input"
 import {Label} from "app/shacdn/components/ui/label"
 import {Switch} from "app/shacdn/components/ui/switch";
-import {useAppDispatch, useAppSelector} from "app/config/store";
-import {createEntity, getEntity, reset, updateEntity} from "app/entities/datasource/datasource.reducer";
+import {useAppDispatch} from "app/config/store";
+import {createEntity, updateEntity} from "app/entities/datasource/datasource.reducer";
 
 import {useFormik} from 'formik';
 import * as yup from 'yup';
@@ -22,24 +22,13 @@ import {defaultValue, IDatasource} from "app/shared/model/datasource.model";
 const DatasourceUpdate = React.forwardRef((_, ref) => {
     const dispatch = useAppDispatch();
 
-    const datasourceEntity = useAppSelector<IDatasource>(state => state.datasource.entity);
+    const [datasource, setDatasource] = useState<IDatasource>(defaultValue);
 
-    const [id, setId] = useState<number | undefined>(undefined);
-
-    const isNew = id === undefined;
-
+    const isNew = datasource.id === undefined || datasource.id === null;
     const [open, setOpen] = useState(false)
 
-    useEffect(() => {
-        if (isNew) {
-            dispatch(reset());
-        } else {
-            dispatch(getEntity(id));
-        }
-    }, []);
-
-
-    const handleOpen = () => {
+    const handleOpen = (row:IDatasource) => {
+        setDatasource(row)
         setOpen(true)
     }
 
@@ -54,7 +43,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
 
     const saveEntity = values => {
         const entity = {
-            ...datasourceEntity,
+            ...datasource,
             ...values,
         };
 
@@ -66,9 +55,8 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
     };
 
     const formik = useFormik({
-        initialValues: {
-            ...defaultValue
-        },
+        enableReinitialize: true,
+        initialValues: datasource,
         validationSchema: yup.object({
             id: yup.number().nullable('id must not be null'),
             title: yup
@@ -104,7 +92,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                                         ID
                                     </Label>
                                     <Input id="id" className="col-span-3"
-                                           value={datasourceEntity.id}
+                                           value={datasource.id}
                                            onChange={formik.handleChange}
                                            onBlur={formik.handleBlur}
                                            disabled
@@ -117,7 +105,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                                 Title
                             </Label>
                             <Input id="title" className="col-span-3"
-                                   value={datasourceEntity.title}
+                                   value={formik.values.title}
                                    onChange={formik.handleChange}
                                    onBlur={formik.handleBlur}
                             />
@@ -127,7 +115,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                                 Description
                             </Label>
                             <Input id="description" className="col-span-3"
-                                   value={datasourceEntity.description}
+                                   value={formik.values.description}
                                    onChange={formik.handleChange}
                                    onBlur={formik.handleBlur}
                             />
@@ -144,7 +132,9 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button type="submit">Create</Button>
+                        <Button type="submit">
+                            {isNew ? 'Add' : 'Update'}
+                        </Button>
                     </DialogFooter>
                 </form>
             </DialogContent>

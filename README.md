@@ -66,3 +66,10 @@ public class MyQuartzJob extends QuartzJobBean {
 | 메서드 구현 | execute(JobExecutionContext context) 메서드를 구현해야 함 | executeInternal(JobExecutionContext context) 메서드를 구현해야 함 |
 | Spring 통합 | Spring과의 통합이 별도로 필요 | Spring에서의 Quartz 작업 통합을 쉽게 처리할 수 있음 |
 | Spring Quartz 사용 시의 편의성 | Spring에서 사용 시 별도의 설정이 필요 | Spring의 @Autowired 등을 활용하여 자동으로 빈 주입 가능 |
+
+
+## todo
+- tailwind
+- tailadmin
+- shacdn
+- entity 구성 - datasource, schedue

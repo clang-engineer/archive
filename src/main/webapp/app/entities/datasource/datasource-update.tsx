@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 
 import {Button} from "app/shacdn/components/ui/button"
 import {
@@ -13,22 +13,31 @@ import {Input} from "app/shacdn/components/ui/input"
 import {Label} from "app/shacdn/components/ui/label"
 import {Switch} from "app/shacdn/components/ui/switch";
 import {useAppDispatch, useAppSelector} from "app/config/store";
-import {createEntity} from "app/entities/datasource/datasource.reducer";
+import {createEntity, getEntity, reset, updateEntity} from "app/entities/datasource/datasource.reducer";
 
 import {useFormik} from 'formik';
 import * as yup from 'yup';
+import {defaultValue, IDatasource} from "app/shared/model/datasource.model";
 
 const DatasourceUpdate = React.forwardRef((_, ref) => {
-    React.useImperativeHandle(ref, () => ({
-        open: handleOpen,
-        close: handleClose,
-    }));
-
     const dispatch = useAppDispatch();
 
-    const datasourceEntity = useAppSelector(state => state.datasource.entity);
+    const datasourceEntity = useAppSelector<IDatasource>(state => state.datasource.entity);
+
+    const [id, setId] = useState<number | undefined>(undefined);
+
+    const isNew = id === undefined;
 
     const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        if (isNew) {
+            dispatch(reset());
+        } else {
+            dispatch(getEntity(id));
+        }
+    }, []);
+
 
     const handleOpen = () => {
         setOpen(true)
@@ -38,12 +47,27 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
         setOpen(false)
     }
 
+    React.useImperativeHandle(ref, () => ({
+        open: handleOpen,
+        close: handleClose,
+    }));
+
+    const saveEntity = values => {
+        const entity = {
+            ...datasourceEntity,
+            ...values,
+        };
+
+        if (isNew) {
+            dispatch(createEntity(entity));
+        } else {
+            dispatch(updateEntity(entity));
+        }
+    };
+
     const formik = useFormik({
         initialValues: {
-            id: null,
-            title: '',
-            description: '',
-            activated: false,
+            ...defaultValue
         },
         validationSchema: yup.object({
             id: yup.number().nullable('id must not be null'),
@@ -56,9 +80,9 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
             activated: yup.boolean().required('This field is required'),
         }),
         onSubmit(values) {
-            dispatch(createEntity(values));
-            handleClose();
+            saveEntity(values);
         },
+
     });
 
 
@@ -73,6 +97,21 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
+                        {
+                            !isNew && (
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label htmlFor="id" className="text-right">
+                                        ID
+                                    </Label>
+                                    <Input id="id" className="col-span-3"
+                                           value={datasourceEntity.id}
+                                           onChange={formik.handleChange}
+                                           onBlur={formik.handleBlur}
+                                           disabled
+                                    />
+                                </div>
+                            )
+                        }
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="title" className="text-right">
                                 Title
@@ -90,7 +129,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                             <Input id="description" className="col-span-3"
                                    value={datasourceEntity.description}
                                    onChange={formik.handleChange}
-                                      onBlur={formik.handleBlur}
+                                   onBlur={formik.handleBlur}
                             />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">

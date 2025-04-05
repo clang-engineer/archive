@@ -27,8 +27,10 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
     const isNew = datasource.id === undefined || datasource.id === null;
     const [open, setOpen] = useState(false)
 
-    const handleOpen = (row:IDatasource) => {
-        setDatasource(row)
+    const handleOpen = (row: IDatasource) => {
+        if (row && row.id) {
+            setDatasource(row)
+        }
         setOpen(true)
     }
 
@@ -64,7 +66,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                 .min(5, 'length must be at least 5 characters')
                 .max(100, 'length must be at most 100 characters')
                 .required('This field is required'),
-            description: yup.string(),
+            description: yup.string().required('This field is required'),
             activated: yup.boolean().required('This field is required'),
         }),
         onSubmit(values) {
@@ -73,11 +75,24 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
 
     });
 
+    const ErrorLabel = (props: {field :string}) => {
+        const {field} = props;
+
+        if ((formik.touched[field] || formik.submitCount > 0) && formik.errors[field]) {
+            return (
+                <Label className="text-destructive col-span-4 text-right">
+                    {formik.errors[field]}
+                </Label>
+            )
+        }
+        return null
+    }
+
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent className="sm:max-w-[425px]" onInteractOutside={(e) => e.preventDefault()}>
-                <form onSubmit={formik.handleSubmit}>
+                <form onSubmit={formik.handleSubmit} key={datasource.id ?? 'new'}>
                     <DialogHeader>
                         <DialogTitle>Add Datasource</DialogTitle>
                         <DialogDescription>
@@ -109,6 +124,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                                    onChange={formik.handleChange}
                                    onBlur={formik.handleBlur}
                             />
+                            <ErrorLabel field="title"/>
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="description" className="text-right">
@@ -119,6 +135,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                                    onChange={formik.handleChange}
                                    onBlur={formik.handleBlur}
                             />
+                            <ErrorLabel field="description"/>
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="activated" className="text-right">
@@ -129,6 +146,7 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                                     onCheckedChange={(checked) => formik.setFieldValue('activated', checked)}
                                     onBlur={formik.handleBlur}
                             />
+                            <ErrorLabel field="activated"/>
                         </div>
                     </div>
                     <DialogFooter>

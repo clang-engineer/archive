@@ -1,15 +1,9 @@
 import React from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableRow
-} from "app/tailadmin/components/ui/table";
+import {Table, TableBody, TableCell, TableHeader, TableRow} from "app/shared/tailadmin/components/ui/table";
 import tableData from "app/entities/datasource/dummy";
-import Badge from "app/tailadmin/components/ui/badge/Badge";
-import { useAppSelector } from "app/config/store";
-import { IDatasource } from "app/shared/model/datasource.model";
+import Badge from "app/shared/tailadmin/components/ui/badge/Badge";
+import {useAppSelector} from "app/config/store";
+import {IDatasource} from "app/shared/model/datasource.model";
 
 const DatasourceTable = () => {
   const entities = useAppSelector<IDatasource[]>(state => state.datasource.entities);

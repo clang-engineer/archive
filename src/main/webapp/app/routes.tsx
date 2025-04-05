@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import BatchSocket from "./modules/batch-socket";
 import Home from "./modules/home";
 import Loadable from 'react-loadable';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
-import AppLayout from "app/tailadmin/layout/AppLayout";
-import NotFound from "app/tailadmin/pages/OtherPage/NotFound";
+import AppLayout from "app/shared/tailadmin/layout/AppLayout";
+import NotFound from "app/shared/tailadmin/pages/OtherPage/NotFound";
 
 const loading = <div>loading ...</div>;
 
@@ -15,7 +15,7 @@ const EntityRoutes = Loadable({
 });
 
 const SampleRoutes = Loadable({
-  loader: () => import(/* webpackChunkName: "sample" */ 'app/tailadmin/pages/routes'),
+  loader: () => import(/* webpackChunkName: "sample" */ 'app/shared/tailadmin/pages/routes'),
   loading: () => loading,
 });
 

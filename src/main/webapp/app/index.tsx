@@ -1,12 +1,12 @@
-import React, { StrictMode } from 'react';
-import { ThemeProvider } from "./tailadmin/context/ThemeContext";
+import React, {StrictMode} from 'react';
+import {ThemeProvider} from "app/shared/tailadmin/context/ThemeContext";
 
 
-import { createRoot } from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 import AppComponent from "./app";
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import getStore from "./config/store";
-import { AppWrapper } from "app/tailadmin/components/common/PageMeta";
+import {AppWrapper} from "app/shared/tailadmin/components/common/PageMeta";
 
 
 const rootEl = document.getElementById('root');

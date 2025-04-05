@@ -1,9 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import {useAppDispatch, useAppSelector} from "app/config/store";
 import {getEntities} from "app/entities/datasource/datasource.reducer";
-import PageMeta from "app/tailadmin/components/common/PageMeta";
-import PageBreadcrumb from "app/tailadmin/components/common/PageBreadCrumb";
-import ComponentCard from "app/tailadmin/components/common/ComponentCard";
+import PageMeta from "app/shared/tailadmin/components/common/PageMeta";
+import PageBreadcrumb from "app/shared/tailadmin/components/common/PageBreadCrumb";
+import ComponentCard from "app/shared/tailadmin/components/common/ComponentCard";
 import {Button} from "app/shared/shacdn/components/ui/button";
 import DatasourceUpdate from "app/entities/datasource/datasource-update";
 import {DataTable} from "app/shared/shacdn/components/ui/data-table";

@@ -77,8 +77,10 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                             <Label htmlFor="title" className="text-right">
                                 Title
                             </Label>
-                            <Input id="title" className="col-span-3" defaultValue={datasourceEntity.title}
+                            <Input id="title" className="col-span-3"
+                                   value={datasourceEntity.title}
                                    onChange={formik.handleChange}
+                                   onBlur={formik.handleBlur}
                             />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
@@ -86,8 +88,9 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                                 Description
                             </Label>
                             <Input id="description" className="col-span-3"
-                                   defaultChecked={datasourceEntity.description}
+                                   value={datasourceEntity.description}
                                    onChange={formik.handleChange}
+                                      onBlur={formik.handleBlur}
                             />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
@@ -95,8 +98,9 @@ const DatasourceUpdate = React.forwardRef((_, ref) => {
                                 Activated
                             </Label>
                             <Switch id="activated" className="col-span-3"
-                                    defaultChecked={true}
+                                    checked={formik.values.activated}
                                     onCheckedChange={(checked) => formik.setFieldValue('activated', checked)}
+                                    onBlur={formik.handleBlur}
                             />
                         </div>
                     </div>

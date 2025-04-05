@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {useAppDispatch, useAppSelector} from "app/config/store";
-import {getEntities} from "app/entities/datasource/datasource.reducer";
+import {deleteEntity, getEntities} from "app/entities/datasource/datasource.reducer";
 import PageMeta from "app/shared/tailadmin/components/common/PageMeta";
 import PageBreadcrumb from "app/shared/tailadmin/components/common/PageBreadCrumb";
 import ComponentCard from "app/shared/tailadmin/components/common/ComponentCard";
@@ -8,6 +8,9 @@ import {Button} from "app/shared/shacdn/components/ui/button";
 import DatasourceUpdate from "app/entities/datasource/datasource-update";
 import {DataTable} from "app/shared/shacdn/components/ui/data-table";
 import {columns} from "app/entities/datasource/columns";
+import {create} from 'react-modal-promise';
+import PromiseAlertDialog from "app/shared/component/promise-alert-dialog";
+
 
 const Datasource = () => {
     const dispatch = useAppDispatch();
@@ -38,17 +41,21 @@ const Datasource = () => {
                 }>
                     <DataTable
                         columns={
-                        columns(
-                            {
-                                onEditClick: (row) => {
-                                    datasourceUpdateRef.current.open(row);
-                                },
-                                onDeleteClick: (id) => {
-                                    alert("Delete " + id);
+                            columns(
+                                {
+                                    onEditClick: (row) => {
+                                        datasourceUpdateRef.current.open(row);
+                                    },
+                                    onDeleteClick: (id) => {
+                                        create(PromiseAlertDialog)().then((result) => {
+                                            if (result) {
+                                                dispatch(deleteEntity(id));
+                                            }
+                                        });
+                                    }
                                 }
-                            }
-                        )
-                    } data={entities}/>
+                            )
+                        } data={entities}/>
                 </ComponentCard>
             </div>
             <DatasourceUpdate ref={datasourceUpdateRef}/>

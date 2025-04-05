@@ -28,11 +28,7 @@ const PromiseAlertDialog = ({isOpen, onResolve, onReject}) => {
                 </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-                <AlertDialogCancel
-                    onClick={() => {
-                        onResolve(false);
-                    }}
-                >Cancel</AlertDialogCancel>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
                 <AlertDialogAction
                     onClick={() => {
                         onResolve(true);

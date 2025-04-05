@@ -42,21 +42,28 @@ class DatasourceResource(
     return ResponseEntity.ok().body(datasourceDTO)
   }
 
-  @PutMapping("/datasources")
-  fun updateDatasource(@RequestBody datasourceDTO: DatasourceDTO): ResponseEntity<DatasourceDTO> {
+  @PutMapping("/datasources/{id}")
+  fun updateDatasource(
+    @PathVariable(value = "id", required = false) id: Long,
+    @RequestBody datasourceDTO: DatasourceDTO): ResponseEntity<DatasourceDTO> {
     log.debug("REST request to update Datasource : $datasourceDTO")
-    if (datasourceDTO.id == null) {
+
+    if (id == null) {
       throw RuntimeException("Invalid id")
     }
+
     val result = datasourceService.save(datasourceDTO)
     return ResponseEntity.ok()
       .body(result)
   }
 
-  @PatchMapping("/datasources")
-  fun partialUpdateDatasource(@RequestBody datasourceDTO: DatasourceDTO): ResponseEntity<DatasourceDTO> {
+  @PatchMapping("/datasources/{id}")
+  fun partialUpdateDatasource(
+    @PathVariable(value = "id", required = false) id: Long,
+    @RequestBody datasourceDTO: DatasourceDTO): ResponseEntity<DatasourceDTO> {
     log.debug("REST request to partial update Datasource : $datasourceDTO")
-    if (datasourceDTO.id == null) {
+
+    if (id == null) {
       throw RuntimeException("Invalid id")
     }
     val result = datasourceService.partialUpdate(datasourceDTO)

@@ -1,17 +1,20 @@
 import React, {useEffect, useRef} from 'react';
-import {useAppDispatch} from "app/config/store";
+import {useAppDispatch, useAppSelector} from "app/config/store";
 import {getEntities} from "app/entities/datasource/datasource.reducer";
 import PageMeta from "app/tailadmin/components/common/PageMeta";
 import PageBreadcrumb from "app/tailadmin/components/common/PageBreadCrumb";
 import ComponentCard from "app/tailadmin/components/common/ComponentCard";
-import DatasourceTable from "app/entities/datasource/datasource-table";
 import {Button} from "app/shacdn/components/ui/button";
 import DatasourceUpdate from "app/entities/datasource/datasource-update";
+import {DataTable} from "app/shacdn/components/ui/data-table";
+import {columns} from "app/entities/datasource/columns";
 
 const Datasource = () => {
     const dispatch = useAppDispatch();
 
     const datasourceUpdateRef = useRef(null);
+
+    const entities = useAppSelector(state => state.datasource.entities);
 
     useEffect(() => {
         dispatch(getEntities({}));
@@ -33,7 +36,7 @@ const Datasource = () => {
                     </Button>
 
                 }>
-                    <DatasourceTable/>
+                    <DataTable columns={columns} data={entities}/>
                 </ComponentCard>
             </div>
             <DatasourceUpdate ref={datasourceUpdateRef}/>

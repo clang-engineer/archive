@@ -5,7 +5,7 @@ import PageMeta from "app/tailadmin/components/common/PageMeta";
 import PageBreadcrumb from "app/tailadmin/components/common/PageBreadCrumb";
 import ComponentCard from "app/tailadmin/components/common/ComponentCard";
 import DatasourceTable from "app/entities/datasource/datasource-table";
-import {PlusIcon} from "app/tailadmin/icons";
+import {Button} from "app/shacdn/components/ui/button";
 
 const Datasource = () => {
     const dispatch = useAppDispatch();
@@ -13,16 +13,6 @@ const Datasource = () => {
     useEffect(() => {
         dispatch(getEntities({}));
     }, []);
-
-    const TitleButton = () => {
-        return <button type="button"
-                       className="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
-                    inline-flex items-center gap-2">
-            <PlusIcon fill="white"/>
-            Extra small
-        </button>
-    }
-
 
     return (
         <>
@@ -32,7 +22,12 @@ const Datasource = () => {
             />
             <PageBreadcrumb pageTitle="Datasource"/>
             <div className="space-y-6">
-                <ComponentCard title={<TitleButton/>}>
+                <ComponentCard title={
+                    <Button onClick={() => alert('Add Datasource')}>
+                        Add Datasource
+                    </Button>
+
+                }>
                     <DatasourceTable/>
                 </ComponentCard>
             </div>

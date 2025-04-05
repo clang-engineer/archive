@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-import {Button} from "app/shacdn/components/ui/button"
+import {Button} from "app/shared/shacdn/components/ui/button"
 import {
     Dialog,
     DialogContent,
@@ -8,10 +8,10 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "app/shacdn/components/ui/dialog"
-import {Input} from "app/shacdn/components/ui/input"
-import {Label} from "app/shacdn/components/ui/label"
-import {Switch} from "app/shacdn/components/ui/switch";
+} from "app/shared/shacdn/components/ui/dialog"
+import {Input} from "app/shared/shacdn/components/ui/input"
+import {Label} from "app/shared/shacdn/components/ui/label"
+import {Switch} from "app/shared/shacdn/components/ui/switch";
 import {useAppDispatch} from "app/config/store";
 import {createEntity, updateEntity} from "app/entities/datasource/datasource.reducer";
 

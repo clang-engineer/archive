@@ -1,8 +1,8 @@
 import React from "react";
 import {ColumnDef} from "@tanstack/react-table"
 import {IDatasource} from "app/shared/model/datasource.model";
-import {Checkbox} from "app/shacdn/components/ui/checkbox";
-import {Button} from "app/shacdn/components/ui/button";
+import {Checkbox} from "app/shared/shacdn/components/ui/checkbox";
+import {Button} from "app/shared/shacdn/components/ui/button";
 
 "use client"
 

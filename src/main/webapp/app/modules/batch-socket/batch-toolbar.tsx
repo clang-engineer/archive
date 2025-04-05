@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "../../shared/component/button/gradient-button";
+import {Button} from "app/shared/shacdn/components/ui/button";
 
 const InputField = ({label, id, placeholder, value, onChange}) => (
     <div>

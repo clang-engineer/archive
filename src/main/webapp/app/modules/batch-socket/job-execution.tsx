@@ -1,6 +1,6 @@
 import React from 'react';
-import { IJobExecution } from "../../shared/model/job-execution.model";
-import Button from "../../shared/component/button/gradient-button";
+import {IJobExecution} from "../../shared/model/job-execution.model";
+import {Button} from "app/shared/shacdn/components/ui/button";
 
 interface IJobExecutionProps {
   jobExecution: IJobExecution;

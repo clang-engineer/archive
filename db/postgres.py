@@ -3,8 +3,11 @@
 import psycopg2
 from psycopg2 import sql
 
-def connect_postgres(config):
-    return psycopg2.connect(**config)
+from config import POSTGRES_CONFIG
+
+
+def connect_postgres():
+    return psycopg2.connect(**POSTGRES_CONFIG)
 
 def fetch_patients(cursor, schema):
     cursor.execute(sql.SQL("SELECT * FROM {}.tbl_patient").format(sql.Identifier(schema)))

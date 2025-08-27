@@ -6,7 +6,7 @@ import re
 # XML, CSV 경로
 xml_file = '/Users/zero/Desktop/_zero/workspace/snuh-eras/src/main/resources/config/liquibase/datamart/20230810000002_added_StomachSchema.xml'
 csv_file = '/Users/zero/Desktop/_zero/workspace/snuh-eras/src/main/resources/config/liquibase/datamart/fake-data/common/formula.csv'
-output_file = 'fields_mapped.csv'  # 변환 CSV
+output_file = 'output/fields_mapped.csv'  # 변환 CSV
 
 # XML 파싱해서 field -> table 매핑 생성
 tree = ET.parse(xml_file)

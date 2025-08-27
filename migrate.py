@@ -1,13 +1,14 @@
 # migrate.py
 
-from db.postgres import connect_postgres, fetch_patients, fetch_related_data
+from config import MONGO_URI, MONGO_DB, SCHEMA_NAME, COLLECTION_NAME, RELATED_TABLES
 from db.mongo import connect_mongo
+from db.postgres import connect_postgres, fetch_patients, fetch_related_data
 from utils import convert_decimals
-from config import POSTGRES_CONFIG, MONGO_URI, MONGO_DB, SCHEMA_NAME, COLLECTION_NAME, RELATED_TABLES
+
 
 def migrate():
     # PostgreSQL 연결
-    pg_conn = connect_postgres(POSTGRES_CONFIG)
+    pg_conn = connect_postgres()
     pg_cursor = pg_conn.cursor()
 
     # MongoDB 연결

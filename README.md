@@ -18,6 +18,7 @@
 | `python-script/` | `clang-engineer/python-script` | main | 2026-06-08 |
 | `yorez.github.io-v2/` | `clang-engineer/yorez.github.io-v2` | master | 2026-06-08 |
 | `tax-refund/` | `clang-engineer/tax-refund` | master | 2026-06-08 |
+| `quartz-explorer/` | `clang-engineer/quartz-explorer` | main | 2026-06-08 |
 
 ## 기법
 

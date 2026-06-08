@@ -19,6 +19,7 @@
 | `yorez.github.io-v2/` | `clang-engineer/yorez.github.io-v2` | master | 2026-06-08 |
 | `tax-refund/` | `clang-engineer/tax-refund` | master | 2026-06-08 |
 | `quartz-explorer/` | `clang-engineer/quartz-explorer` | main | 2026-06-08 |
+| `batch-explorer/` | `clang-engineer/batch-explorer` | develop | 2026-06-08 |
 
 ## 기법
 

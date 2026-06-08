@@ -15,6 +15,8 @@
 | `zsh-config/` | `clang-engineer/zsh-config` | master | 2026-06-08 |
 | `tmux-config/` | `clang-engineer/tmux-config` | master | 2026-06-08 |
 | `hammerspoon-config/` | `clang-engineer/hammerspoon-config` | master | 2026-06-08 |
+| `python-script/` | `clang-engineer/python-script` | main | 2026-06-08 |
+| `yorez.github.io-v2/` | `clang-engineer/yorez.github.io-v2` | master | 2026-06-08 |
 
 ## 기법
 

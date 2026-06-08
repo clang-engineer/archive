@@ -11,6 +11,10 @@
 | `bigdata-cert/` | `clang-engineer/bigdata-cert` | main | 2026-06-08 |
 | `fe-performance-optimization-lecture1/` | `clang-engineer/fe-performance-optimization-lecture1` | master | 2026-06-08 |
 | `fe-performance-optimization-lecture2/` | `clang-engineer/fe-performance-optimization-lecture2` | master | 2026-06-08 |
+| `vim-config/` | `clang-engineer/vim-config` | master | 2026-06-08 |
+| `zsh-config/` | `clang-engineer/zsh-config` | master | 2026-06-08 |
+| `tmux-config/` | `clang-engineer/tmux-config` | master | 2026-06-08 |
+| `hammerspoon-config/` | `clang-engineer/hammerspoon-config` | master | 2026-06-08 |
 
 ## 기법
 

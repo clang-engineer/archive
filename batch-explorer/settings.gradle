@@ -1,0 +1,12 @@
+pluginManagement {
+	repositories {
+		maven { url 'https://repo.spring.io/snapshot' }
+		gradlePluginPortal()
+	}
+	plugins {
+		id 'org.springframework.boot' version "${springBootVersion}"
+		id "org.flywaydb.flyway" version "${flywayPluginVersion}"
+		id 'com.github.node-gradle.node' version "${gradleNodePluginVersion}"
+	}
+}
+rootProject.name = 'batch-explorer'
